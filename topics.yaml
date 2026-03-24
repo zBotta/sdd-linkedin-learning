@@ -1,0 +1,17 @@
+taxonomy_version: v1.0.0
+zeroshot_min_similarity: 0.35
+secondary_min_similarity: 0.5
+
+topics:
+  - slug: small-language-models
+    name: Small Language Models
+    keywords: ["small language model", "llm", "quantization", "inference"]
+  - slug: rust
+    name: Rust
+    keywords: ["rust", "cargo", "borrow checker", "ownership"]
+  - slug: mcp
+    name: MCP
+    keywords: ["model context protocol", "mcp", "tooling", "server"]
+  - slug: agents
+    name: Agents
+    keywords: ["agent", "autonomous", "workflow", "planner"]

@@ -11,17 +11,17 @@
 
 **Independent Test**: Run one local sync against a valid browser session and verify normalized delta payloads are produced without cloud-side scraping.
 
-- [ ] T001 Create module skeleton for local_sync, cloud, shared, scripts, and tests in local_sync/__init__.py
-- [ ] T002 Initialize Python project dependencies and tool config in pyproject.toml
-- [ ] T003 [P] Add environment templates for local agent and cloud endpoint settings in .env.example
-- [ ] T004 [P] Define shared ingest payload schemas and validation models in shared/schemas.py
-- [ ] T005 [US1] Implement LinkedIn saved-post extraction via local authenticated browser session in local_sync/linkedin_scraper.py
-- [ ] T006 [US1] Implement normalization and dedup preprocessing (normalized JSON only) in local_sync/preprocessing.py
-- [ ] T007 [US1] Implement sync checkpoint/state tracking for incremental runs in local_sync/state_store.py
-- [ ] T008 [US1] Implement local sync orchestration (extract -> preprocess -> package) in local_sync/sync_agent.py (depends on T005, T006, T007)
-- [ ] T009 [US1] Implement authenticated JSON delta push client with retry-safe request envelopes in local_sync/push_client.py (depends on T004, T008)
-- [ ] T010 [P] [US1] Add unit tests for normalization, dedup, and source-key handling in tests/unit/local_sync/test_preprocessing.py
-- [ ] T011 [US1] Add integration test for one-cycle local sync prototype with fixture data in tests/integration/test_local_sync_prototype.py (depends on T008, T009)
+- [X] T001 Create module skeleton for local_sync, cloud, shared, scripts, and tests in local_sync/__init__.py
+- [X] T002 Initialize Python project dependencies and tool config in pyproject.toml
+- [X] T003 [P] Add environment templates for local agent and cloud endpoint settings in .env.example
+- [X] T004 [P] Define shared ingest payload schemas and validation models in shared/schemas.py
+- [X] T005 [US1] Implement LinkedIn saved-post extraction via local authenticated browser session in local_sync/linkedin_scraper.py
+- [X] T006 [US1] Implement normalization and dedup preprocessing (normalized JSON only) in local_sync/preprocessing.py
+- [X] T007 [US1] Implement sync checkpoint/state tracking for incremental runs in local_sync/state_store.py
+- [X] T008 [US1] Implement local sync orchestration (extract -> preprocess -> package) in local_sync/sync_agent.py (depends on T005, T006, T007)
+- [X] T009 [US1] Implement authenticated JSON delta push client with retry-safe request envelopes in local_sync/push_client.py (depends on T004, T008)
+- [X] T010 [P] [US1] Add unit tests for normalization, dedup, and source-key handling in tests/unit/local_sync/test_preprocessing.py
+- [X] T011 [US1] Add integration test for one-cycle local sync prototype with fixture data in tests/integration/test_local_sync_prototype.py (depends on T008, T009)
 
 ---
 
@@ -31,14 +31,14 @@
 
 **Independent Test**: Classify a fixture batch and verify deterministic primary/secondary assignments, confidence values, and run diagnostics.
 
-- [ ] T012 [P] [US1] Seed initial stable taxonomy and thresholds configuration in topics.yaml
-- [ ] T013 [US1] Implement BERTopic taxonomy assignment module with default local embedding model in local_sync/taxonomy_assignment.py
-- [ ] T014 [P] [US1] Implement taxonomy versioning and stable-label resolution helpers in shared/taxonomy.py
+- [X] T012 [P] [US1] Seed initial stable taxonomy and thresholds configuration in topics.yaml
+- [X] T013 [US1] Implement BERTopic taxonomy assignment module with default local embedding model in local_sync/taxonomy_assignment.py
+- [X] T014 [P] [US1] Implement taxonomy versioning and stable-label resolution helpers in shared/taxonomy.py
 - [ ] T015 [US1] Implement optional non-blocking summary/label refinement wrapper (disabled-safe) in local_sync/topic_label_refinement.py
-- [ ] T016 [US1] Extend sync pipeline to persist per-post confidence plus primary/secondary topic roles in local_sync/sync_agent.py (depends on T013, T014)
-- [ ] T017 [US1] Record classification run metadata and diagnostics payloads in shared/models.py
-- [ ] T018 [P] [US1] Add unit tests for confidence thresholding and primary-topic uniqueness in tests/unit/local_sync/test_taxonomy_assignment.py
-- [ ] T019 [US1] Add integration test for stable assignment reproducibility across repeated runs in tests/integration/test_stable_classification.py (depends on T016, T017)
+- [X] T016 [US1] Extend sync pipeline to persist per-post confidence plus primary/secondary topic roles in local_sync/sync_agent.py (depends on T013, T014)
+- [X] T017 [US1] Record classification run metadata and diagnostics payloads in shared/models.py
+- [X] T018 [P] [US1] Add unit tests for confidence thresholding and primary-topic uniqueness in tests/unit/local_sync/test_taxonomy_assignment.py
+- [X] T019 [US1] Add integration test for stable assignment reproducibility across repeated runs in tests/integration/test_stable_classification.py (depends on T016, T017)
 - [ ] T020 [US1] Add local classification telemetry (counts, failures, timing) in local_sync/observability.py
 
 ---
