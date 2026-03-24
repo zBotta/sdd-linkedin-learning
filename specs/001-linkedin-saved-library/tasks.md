@@ -66,18 +66,18 @@
 
 **Independent Test**: Send duplicate ingest batches and verify idempotent results, live reads, and authenticated access to all defined contract endpoints.
 
-- [ ] T029 [P] Create SQLite connection manager with WAL, busy timeout, and transaction helpers in shared/db.py
-- [ ] T030 Create canonical schema and FTS5 initialization script for posts/topics/post_topics/topic_runs/topic_candidates/notes in scripts/init_db.py
-- [ ] T031 [US1] Implement idempotent upsert service for ingest batch payloads in cloud/api/services/ingest_service.py
-- [ ] T032 [P] Implement bearer-auth validation middleware for API routes in cloud/api/auth.py
-- [ ] T033 [P] [US1] Implement health and sync-status routes matching contract in cloud/api/routes/system.py
-- [ ] T034 [US1] Implement ingest batch route (POST /ingest/batch) with schema validation in cloud/api/routes/ingest.py
-- [ ] T035 [US2] Implement topic-runs and topic-candidates decision routes in cloud/api/routes/topics.py
-- [ ] T036 Wire FastAPI app, route registration, and dependency injection in cloud/api/main.py (depends on T031, T032, T033, T034, T035)
-- [ ] T037 [P] [US1] Add contract tests for /health, /sync-status, and /ingest/batch in tests/contract/test_ingest_api.py
-- [ ] T038 [P] [US2] Add contract tests for /topic-runs, /topic-candidates, and /topic-candidates/{id}/decision in tests/contract/test_topic_review_api.py
-- [ ] T039 [US1] Add integration test for ingest retry/idempotency with duplicate batch IDs in tests/integration/test_ingest_idempotency.py
-- [ ] T040 [US1] Add API observability for request IDs, ingest counts, and idempotency outcomes in cloud/api/services/telemetry.py
+- [X] T029 [P] Create SQLite connection manager with WAL, busy timeout, and transaction helpers in shared/db.py
+- [X] T030 Create canonical schema and FTS5 initialization script for posts/topics/post_topics/topic_runs/topic_candidates/notes in scripts/init_db.py
+- [X] T031 [US1] Implement idempotent upsert service for ingest batch payloads in cloud/api/services/ingest_service.py
+- [X] T032 [P] Implement bearer-auth validation middleware for API routes in cloud/api/auth.py
+- [X] T033 [P] [US1] Implement health and sync-status routes matching contract in cloud/api/routes/system.py
+- [X] T034 [US1] Implement ingest batch route (POST /ingest/batch) with schema validation in cloud/api/routes/ingest.py
+- [X] T035 [US2] Implement topic-runs and topic-candidates decision routes in cloud/api/routes/topics.py
+- [X] T036 Wire FastAPI app, route registration, and dependency injection in cloud/api/main.py (depends on T031, T032, T033, T034, T035)
+- [X] T037 [P] [US1] Add contract tests for /health, /sync-status, and /ingest/batch in tests/contract/test_ingest_api.py
+- [X] T038 [P] [US2] Add contract tests for /topic-runs, /topic-candidates, and /topic-candidates/{id}/decision in tests/contract/test_topic_review_api.py
+- [X] T039 [US1] Add integration test for ingest retry/idempotency with duplicate batch IDs in tests/integration/test_ingest_idempotency.py
+- [X] T040 [US1] Add API observability for request IDs, ingest counts, and idempotency outcomes in cloud/api/services/telemetry.py
 
 ---
 
