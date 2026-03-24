@@ -1,0 +1,337 @@
+openapi: 3.0.3
+info:
+  title: LinkedIn Saved Library Ingest API
+  version: 1.0.0
+  description: Authenticated API for idempotent delta ingest and topic review workflows.
+servers:
+  - url: https://example.com
+security:
+  - bearerAuth: []
+paths:
+  /health:
+    get:
+      summary: Service and DB health
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  db:
+                    type: string
+                  timestamp:
+                    type: string
+                    format: date-time
+  /sync-status:
+    get:
+      summary: Latest sync run status
+      responses:
+        '200':
+          description: Last sync metadata
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lastRunId:
+                    type: string
+                  status:
+                    type: string
+                  startedAt:
+                    type: string
+                    format: date-time
+                  finishedAt:
+                    type: string
+                    format: date-time
+                  processed:
+                    type: integer
+                  errors:
+                    type: integer
+  /ingest/batch:
+    post:
+      summary: Ingest delta batch with idempotent upserts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestBatchRequest'
+      responses:
+        '200':
+          description: Batch accepted and applied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestBatchResponse'
+        '401':
+          description: Unauthorized
+  /topic-runs:
+    post:
+      summary: Record a topic run and outcomes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TopicRunCreate'
+      responses:
+        '201':
+          description: Topic run recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopicRun'
+  /topic-candidates:
+    get:
+      summary: List topic candidates for review
+      parameters:
+        - name: state
+          in: query
+          schema:
+            type: string
+            enum: [pending, promoted, merged, rejected]
+      responses:
+        '200':
+          description: Candidate list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TopicCandidate'
+  /topic-candidates/{id}/decision:
+    post:
+      summary: Apply a review decision to a topic candidate
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TopicCandidateDecision'
+      responses:
+        '200':
+          description: Decision applied
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopicCandidate'
+        '404':
+          description: Candidate not found
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    IngestBatchRequest:
+      type: object
+      required: [batchId, sentAt, posts, topics, postTopics]
+      properties:
+        batchId:
+          type: string
+        sentAt:
+          type: string
+          format: date-time
+        source:
+          type: string
+          default: local_sync
+        posts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostDelta'
+        topics:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicDelta'
+        postTopics:
+          type: array
+          items:
+            $ref: '#/components/schemas/PostTopicDelta'
+        topicCandidates:
+          type: array
+          items:
+            $ref: '#/components/schemas/TopicCandidate'
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoteDelta'
+    IngestBatchResponse:
+      type: object
+      properties:
+        batchId:
+          type: string
+        applied:
+          type: boolean
+        upsertCounts:
+          type: object
+          additionalProperties:
+            type: integer
+        warnings:
+          type: array
+          items:
+            type: string
+    PostDelta:
+      type: object
+      required: [source, sourcePostId, contentHash, savedAt, content]
+      properties:
+        source:
+          type: string
+        sourcePostId:
+          type: string
+        url:
+          type: string
+        author:
+          type: string
+        publishedAt:
+          type: string
+          format: date-time
+        savedAt:
+          type: string
+          format: date-time
+        title:
+          type: string
+        content:
+          type: string
+        contentHash:
+          type: string
+        language:
+          type: string
+        metadataJson:
+          type: object
+          additionalProperties: true
+        summary:
+          type: string
+        importanceScore:
+          type: number
+        noveltyScore:
+          type: number
+        status:
+          type: string
+    TopicDelta:
+      type: object
+      required: [slug, name, taxonomyVersion]
+      properties:
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        taxonomyVersion:
+          type: string
+        sourceType:
+          type: string
+          enum: [predefined, promoted]
+    PostTopicDelta:
+      type: object
+      required: [postSource, postSourceId, topicSlug, role, confidence]
+      properties:
+        postSource:
+          type: string
+        postSourceId:
+          type: string
+        topicSlug:
+          type: string
+        role:
+          type: string
+          enum: [primary, secondary, discovery_candidate]
+        confidence:
+          type: number
+        assignmentSource:
+          type: string
+          enum: [taxonomy_assignment, discovery, manual_review]
+        reviewState:
+          type: string
+          enum: [pending, accepted, rejected, edited]
+    TopicRunCreate:
+      type: object
+      required: [runType, taxonomyVersion, embeddingModel, status, startedAt]
+      properties:
+        runType:
+          type: string
+          enum: [assignment, discovery, refinement]
+        taxonomyVersion:
+          type: string
+        embeddingModel:
+          type: string
+        representationConfig:
+          type: object
+          additionalProperties: true
+        inputCount:
+          type: integer
+        outputCount:
+          type: integer
+        errorCount:
+          type: integer
+        startedAt:
+          type: string
+          format: date-time
+        finishedAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [running, success, failed]
+        diagnosticsJson:
+          type: object
+          additionalProperties: true
+    TopicRun:
+      allOf:
+        - $ref: '#/components/schemas/TopicRunCreate'
+        - type: object
+          properties:
+            id:
+              type: string
+    TopicCandidate:
+      type: object
+      required: [id, label, state]
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        keywords:
+          type: array
+          items:
+            type: string
+        evidenceCount:
+          type: integer
+        confidence:
+          type: number
+        state:
+          type: string
+          enum: [pending, promoted, merged, rejected]
+        mergedIntoTopicSlug:
+          type: string
+    TopicCandidateDecision:
+      type: object
+      required: [decision]
+      properties:
+        decision:
+          type: string
+          enum: [promote, merge, reject]
+        targetTopicSlug:
+          type: string
+        note:
+          type: string
+    NoteDelta:
+      type: object
+      required: [postSource, postSourceId, body]
+      properties:
+        postSource:
+          type: string
+        postSourceId:
+          type: string
+        body:
+          type: string
