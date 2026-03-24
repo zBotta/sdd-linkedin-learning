@@ -41,6 +41,11 @@ class LocalSyncConfig:
     zeroshot_min_similarity: float | None = None
     secondary_min_similarity: float | None = None
     classification_runs_path: Path = Path(".state/classification_runs.jsonl")
+    discovery_low_confidence_threshold: float = 0.45
+    discovery_recent_window_days: int = 7
+    discovery_runs_path: Path = Path(".state/discovery_runs.jsonl")
+    discovery_candidates_path: Path = Path(".state/topic_candidates.jsonl")
+    llama_cpp_model_path: Path | None = None
 
     @classmethod
     def from_env(cls, env_path: str | Path = ".env") -> "LocalSyncConfig":
@@ -77,5 +82,18 @@ class LocalSyncConfig:
             ),
             classification_runs_path=Path(
                 get("CLASSIFICATION_RUNS_PATH", ".state/classification_runs.jsonl")
+            ),
+            discovery_low_confidence_threshold=float(
+                get("DISCOVERY_LOW_CONFIDENCE_THRESHOLD", "0.45")
+            ),
+            discovery_recent_window_days=int(get("DISCOVERY_RECENT_WINDOW_DAYS", "7")),
+            discovery_runs_path=Path(get("DISCOVERY_RUNS_PATH", ".state/discovery_runs.jsonl")),
+            discovery_candidates_path=Path(
+                get("DISCOVERY_CANDIDATES_PATH", ".state/topic_candidates.jsonl")
+            ),
+            llama_cpp_model_path=(
+                Path(get("LLAMA_CPP_MODEL_PATH", ""))
+                if get("LLAMA_CPP_MODEL_PATH", "")
+                else None
             ),
         )

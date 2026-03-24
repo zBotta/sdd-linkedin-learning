@@ -22,8 +22,19 @@ class PushClient:
         self._enabled = enabled
         self._timeout_seconds = timeout_seconds
 
-    def build_payload(self, posts: list[NormalizedPost]) -> dict[str, Any]:
-        batch = IngestBatchRequest(posts=posts)
+    def build_payload(
+        self,
+        posts: list[NormalizedPost],
+        post_topics: list[dict[str, Any]] | None = None,
+        topic_candidates: list[dict[str, Any]] | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        batch = IngestBatchRequest(
+            posts=posts,
+            post_topics=post_topics or [],
+            topic_candidates=topic_candidates or [],
+            metadata=metadata or {},
+        )
         return batch.model_dump(mode="json")
 
     def push_payload(self, payload: dict[str, Any]) -> PushResult:

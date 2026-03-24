@@ -36,6 +36,9 @@ class IngestBatchRequest(BaseModel):
     sent_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     source: str = "local_sync"
     posts: list[NormalizedPost]
+    post_topics: list[dict[str, Any]] = Field(default_factory=list)
+    topic_candidates: list[dict[str, Any]] = Field(default_factory=list)
+    metadata: dict[str, Any] = Field(default_factory=dict)
 
 
 class PushResult(BaseModel):

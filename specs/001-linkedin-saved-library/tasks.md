@@ -49,14 +49,14 @@
 
 **Independent Test**: Execute discovery on fixture data, produce topic candidates, and verify manual backlog reprocess updates assignments only when explicitly triggered.
 
-- [ ] T021 [US2] Implement discovery orchestration for unmatched, low-confidence, and rolling-window scopes in local_sync/topic_discovery.py
-- [ ] T022 [US2] Implement candidate labeling and keyword extraction for review queue payloads in local_sync/topic_discovery.py
-- [ ] T023 [US2] Implement manual backlog reprocess command path (no auto-reprocess) in local_sync/sync_agent.py
-- [ ] T024 [US2] Extend delta payload assembly for topic candidates and discovery-tagged post topics in local_sync/sync_agent.py (depends on T021, T022)
-- [ ] T025 [P] [US2] Add unit tests for discovery scope inclusion and exclusion logic in tests/unit/local_sync/test_topic_discovery.py
-- [ ] T026 [US2] Add integration test for discovery candidate generation and manual reprocess behavior in tests/integration/test_discovery_pipeline.py (depends on T023, T024)
-- [ ] T027 [US2] Add review decision and reprocess operator guide in docs/review-workflow.md
-- [ ] T028 [US2] Add discovery telemetry for candidate counts, confidence bands, and backlog age in local_sync/observability.py
+- [X] T021 [US2] Implement discovery orchestration for unmatched, low-confidence, and rolling-window scopes in local_sync/topic_discovery.py
+- [X] T022 [US2] Implement candidate labeling and keyword extraction for review queue payloads in local_sync/topic_discovery.py
+- [X] T023 [US2] Implement manual backlog reprocess command path (no auto-reprocess) in local_sync/sync_agent.py
+- [X] T024 [US2] Extend delta payload assembly for topic candidates and discovery-tagged post topics in local_sync/sync_agent.py (depends on T021, T022)
+- [X] T025 [P] [US2] Add unit tests for discovery scope inclusion and exclusion logic in tests/unit/local_sync/test_topic_discovery.py
+- [X] T026 [US2] Add integration test for discovery candidate generation and manual reprocess behavior in tests/integration/test_discovery_pipeline.py (depends on T023, T024)
+- [X] T027 [US2] Add review decision and reprocess operator guide in docs/review-workflow.md
+- [X] T028 [US2] Add discovery telemetry for candidate counts, confidence bands, and backlog age in local_sync/observability.py
 
 ---
 
