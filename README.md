@@ -70,6 +70,120 @@ Classification modules remain separated:
 - authenticated ingest API and authenticated UI
 - SQLite persistence with backup/restore automation
 
+## Installation and first run (local machine)
+
+This section walks through a first end-to-end run:
+
+1. install dependencies
+2. log in to LinkedIn from local Playwright session
+3. run local classification with optional GGUF label refinement
+4. push deltas to cloud API (which writes into SQLite)
+
+### 1. Install prerequisites
+
+- Python 3.11+
+- Podman (for API + UI stack)
+- local browser access for LinkedIn login
+
+From repository root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -e .
+python -m playwright install chromium
+```
+
+Optional (for GGUF-based local refinement):
+
+```powershell
+pip install llama-cpp-python
+```
+
+### 2. Configure environment
+
+Create local sync env file from template:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Minimum values for first cloud-connected run:
+
+```dotenv
+# Local sync
+PUSH_ENABLED=true
+CLOUD_API_BASE_URL=http://localhost:8000
+CLOUD_INGEST_TOKEN=change-this-token
+LINKEDIN_HEADLESS=false
+
+# Optional GGUF refinement (leave empty to disable)
+LLAMA_CPP_MODEL_PATH=C:/models/your-model.gguf
+```
+
+Notes:
+
+- `CLOUD_INGEST_TOKEN` must match `INGEST_API_TOKEN` in `cloud/.env`.
+- Keep `LINKEDIN_HEADLESS=false` for first login so you can complete auth manually.
+
+### 3. Start cloud API + UI (Podman)
+
+```powershell
+cd cloud
+podman compose --env-file .env up -d --build
+cd ..
+```
+
+Verify API health:
+
+```powershell
+$token = (Get-Content cloud/.env | Select-String '^INGEST_API_TOKEN=').ToString().Split('=')[1]
+Invoke-RestMethod -Headers @{ Authorization = "Bearer $token" } http://localhost:8000/health
+```
+
+### 4. First LinkedIn login and local sync/classification run
+
+Run one sync cycle from repository root:
+
+```powershell
+python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env()).run_once(limit=100); print(json.dumps(result, indent=2))"
+```
+
+Expected behavior:
+
+- a Chromium window opens to LinkedIn Saved Posts
+- if login is required, complete login/MFA in that browser
+- return to terminal and press Enter when prompted
+- normalization, dedup, classification, discovery, export, and push are executed
+
+### 5. Verify data reached cloud SQLite
+
+Check sync status:
+
+```powershell
+Invoke-RestMethod -Headers @{ Authorization = "Bearer $token" } http://localhost:8000/sync-status
+```
+
+Open UI:
+
+- URL: `http://localhost:8501`
+- sign in with `UI_ACCESS_PASSWORD` from `cloud/.env`
+- verify posts appear in Home/Inbox/Search
+
+### 6. Optional manual backlog reprocess
+
+```powershell
+python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env()).manual_reprocess_backlog(limit=500); print(json.dumps(result, indent=2))"
+```
+
+### 7. Troubleshooting first run
+
+- If push fails with auth error, confirm token parity between `.env` and `cloud/.env`.
+- If push fails with connection error, verify API is running on port 8000.
+- If zero posts are extracted, relaunch with `LINKEDIN_HEADLESS=false`, confirm LinkedIn Saved page access, and rerun.
+- If GGUF refinement is not used, verify `LLAMA_CPP_MODEL_PATH` points to an existing `.gguf` and `llama-cpp-python` is installed.
+
 ## Deployment (Podman on local machine)
 
 These commands run API + UI using Podman Compose.

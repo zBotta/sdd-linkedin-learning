@@ -52,7 +52,7 @@
 ## Decision 8: Local model defaults
 - Decision:
   - Embeddings: `sentence-transformers/all-MiniLM-L6-v2`
-  - Local GGUF model: `Llama-3.2-3B-Instruct-Q4_K_M`
+  - Local GGUF model: `Llama-3.2-1B-Instruct-Q4_K_M`
 - Rationale: Good quality-to-performance balance on commodity local hardware.
 - Alternatives considered:
   - Larger models by default: rejected for higher memory/runtime costs in V1.

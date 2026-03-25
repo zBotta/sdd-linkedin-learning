@@ -17,7 +17,7 @@
 - Q: What weak-content enrichment policy should V1 use? -> A: No enrichment in V1; classify only extracted post body from saved post detail pages.
 - Q: Should taxonomy assignment run per post or in local batches? -> A: Run in small local batches (default 16) while emitting per-post topic/confidence outputs.
 - Q: Should summaries be included in V1, and are they required when local LLM is disabled? -> A: Include summaries as optional enrichments; system remains fully functional when local LLM is disabled.
-- Q: What default local models should V1 use for embeddings and topic naming/refinement? -> A: Use all-MiniLM-L6-v2 embeddings and Llama-3.2-3B-Instruct-Q4_K_M (GGUF/llama.cpp) for naming/refinement.
+- Q: What default local models should V1 use for embeddings and topic naming/refinement? -> A: Use all-MiniLM-L6-v2 embeddings and Llama-3.2-1B-Instruct-Q4_K_M (GGUF/llama.cpp) for naming/refinement.
 - Q: Which review actions are essential in V1 versus deferrable? -> A: Essential actions are approve assignment, reassign primary topic, adjust secondary topics, promote/merge/reject candidates, and manual backlog reprocess; bulk and advanced audit tooling are deferred.
 
 ## User Scenarios & Testing *(mandatory)*
@@ -194,7 +194,7 @@ filtered full-text searches, and creating or editing notes on selected posts.
   and diagnostics needed for audit and reproducibility.
 - **FR-026**: V1 MUST NOT require paid LLM or paid API usage for core ingestion and classification.
 - **FR-026a**: Default local models in V1 MUST be `sentence-transformers/all-MiniLM-L6-v2`
-  for embeddings and `Llama-3.2-3B-Instruct-Q4_K_M` (GGUF via llama.cpp) for optional
+  for embeddings and `Llama-3.2-1B-Instruct-Q4_K_M` (GGUF via llama.cpp) for optional
   topic naming/refinement.
 
 ### Key Entities *(include if feature involves data)*
