@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timezone
 from typing import Any
+from uuid import uuid4
 from urllib import error, request
 
-from shared.schemas import IngestBatchRequest, NormalizedPost, PushResult
+from shared.schemas import NormalizedPost, PushResult
 
 
 class PushClient:
@@ -29,13 +31,71 @@ class PushClient:
         topic_candidates: list[dict[str, Any]] | None = None,
         metadata: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
-        batch = IngestBatchRequest(
-            posts=posts,
-            post_topics=post_topics or [],
-            topic_candidates=topic_candidates or [],
-            metadata=metadata or {},
-        )
-        return batch.model_dump(mode="json")
+        _ = metadata
+
+        payload_posts = [
+            {
+                "source": item.source,
+                "sourcePostId": item.source_post_id,
+                "url": item.url,
+                "author": item.author,
+                "publishedAt": item.published_at.isoformat() if item.published_at else None,
+                "savedAt": item.saved_at.isoformat() if item.saved_at else None,
+                "title": item.title,
+                "content": item.content,
+                "contentHash": item.content_hash,
+                "language": item.language,
+                "metadataJson": item.metadata_json,
+            }
+            for item in posts
+        ]
+
+        payload_post_topics: list[dict[str, Any]] = []
+        for row in post_topics or []:
+            if all(key in row for key in ("postSource", "postSourceId", "topicSlug", "role", "confidence")):
+                payload_post_topics.append(
+                    {
+                        "postSource": row["postSource"],
+                        "postSourceId": row["postSourceId"],
+                        "topicSlug": row["topicSlug"],
+                        "role": row["role"],
+                        "confidence": row["confidence"],
+                        "assignmentSource": row.get("assignmentSource"),
+                        "reviewState": row.get("reviewState"),
+                    }
+                )
+
+        payload_topic_candidates: list[dict[str, Any]] = []
+        for row in topic_candidates or []:
+            candidate_id = row.get("id") or row.get("candidate_id")
+            if not candidate_id:
+                continue
+            keywords = row.get("keywords") or []
+            evidence_count = row.get("evidenceCount")
+            if evidence_count is None:
+                evidence_count = len(row.get("evidence_source_keys") or [])
+            payload_topic_candidates.append(
+                {
+                    "id": candidate_id,
+                    "label": row.get("label", ""),
+                    "keywords": keywords,
+                    "evidenceCount": int(evidence_count),
+                    "confidence": row.get("confidence"),
+                    "state": row.get("state", "pending"),
+                    "mergedIntoTopicSlug": row.get("mergedIntoTopicSlug") or row.get("merged_into_topic_slug"),
+                }
+            )
+
+        return {
+            "batchId": str(uuid4()),
+            "sentAt": datetime.now(timezone.utc).isoformat(),
+            "source": "local_sync",
+            "posts": payload_posts,
+            "topics": [],
+            "postTopics": payload_post_topics,
+            "topicCandidates": payload_topic_candidates,
+            "notes": [],
+        }
 
     def push_payload(self, payload: dict[str, Any]) -> PushResult:
         if not self._enabled:

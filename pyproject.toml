@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "linkedin-saved-library"
 version = "0.1.0"
@@ -20,6 +24,13 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pytest>=8.2.0",
+]
+
+[tool.setuptools.packages.find]
+include = [
+  "cloud*",
+  "shared*",
+  "local_sync*",
 ]
 
 [tool.pytest.ini_options]

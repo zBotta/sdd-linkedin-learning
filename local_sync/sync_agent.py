@@ -27,7 +27,13 @@ from .topic_discovery import TopicDiscoveryPipeline
 
 
 class ScraperProtocol(Protocol):
-    def fetch_saved_posts(self, limit: int = 100) -> list[dict]: ...
+    def fetch_saved_posts(
+        self,
+        limit: int = 100,
+        *,
+        seen_source_keys: set[str] | None = None,
+        stop_on_first_seen: bool = True,
+    ) -> list[dict]: ...
 
 
 class PushClientProtocol(Protocol):
@@ -99,11 +105,21 @@ class SyncAgent:
         )
 
     def run_once(self, limit: int = 100) -> dict[str, object]:
-        raw_posts = self._scraper.fetch_saved_posts(limit=limit)
+        seen_source_keys = set() if self._config.full_rescrape else self._state_store.seen_source_keys
+        stop_on_first_seen = self._config.linkedin_stop_on_first_seen and not self._config.full_rescrape
+
+        try:
+            raw_posts = self._scraper.fetch_saved_posts(
+                limit=limit,
+                seen_source_keys=seen_source_keys,
+                stop_on_first_seen=stop_on_first_seen,
+            )
+        except TypeError:
+            raw_posts = self._scraper.fetch_saved_posts(limit=limit)
 
         normalized = [normalize_post(item) for item in raw_posts]
         deduped = deduplicate_posts(normalized)
-        new_posts = self._state_store.filter_new(deduped)
+        new_posts = deduped if self._config.full_rescrape else self._state_store.filter_new(deduped)
 
         taxonomy = load_taxonomy(self._config.taxonomy_path)
         validate_taxonomy(taxonomy)
@@ -156,6 +172,7 @@ class SyncAgent:
 
         return {
             "batch_id": batch_id,
+            "full_rescrape": self._config.full_rescrape,
             "scraped_count": len(raw_posts),
             "normalized_count": len(normalized),
             "deduped_count": len(deduped),

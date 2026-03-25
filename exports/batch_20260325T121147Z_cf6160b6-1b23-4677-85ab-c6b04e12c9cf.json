@@ -1,0 +1,82 @@
+{
+  "batchId": "cf6160b6-1b23-4677-85ab-c6b04e12c9cf",
+  "exportedAt": "2026-03-25T12:11:47.697219+00:00",
+  "posts": [
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7319993339066413056",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7319993339066413056?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7319993339066413056%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-25T12:11:09.769119Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 1yr \u2022 1yr Visible to everyone 5 years ago I struggled to land my first freelance ML engineering contract. Then I discovered this \u2193 Building one professional real-world ML project is the best way to stand out from the crowd, and land an ML job. And here is how you can do it, \ud835\ude00\ud835\ude01\ud835\uddf2\ud835\uddfd-\ud835\uddef\ud835\ude06-\ud835\ude00\ud835\ude01\ud835\uddf2\ud835\uddfd \ud83d\udc69\u200d\ud83d\udcbb\ud83d\udc68\ud83c\udffd\u200d\ud83d\udcbb\u2193 \ud835\udde6\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\udfed. \ud835\uddd9\ud835\uddf6\ud835\uddfb\ud835\uddf1 \ud835\uddee \ud835\uddff\ud835\uddf2\ud835\uddee\ud835\uddf9-\ud835\ude04\ud835\uddfc\ud835\uddff\ud835\uddf9\ud835\uddf1 \ud835\uddfd\ud835\uddff\ud835\uddfc\ud835\uddef\ud835\uddf9\ud835\uddf2\ud835\uddfa \ud835\ude06\ud835\uddfc\ud835\ude02 \ud835\uddee\ud835\uddff\ud835\uddf2 \ud835\uddf6\ud835\uddfb\ud835\ude01\ud835\uddf2\ud835\uddff\ud835\uddf2\ud835\ude00\ud835\ude01\ud835\uddf2\ud835\uddf1 \ud835\uddf6\ud835\uddfb Working on projects is harder than completing online courses. But hey, no pain no gain. You must work on a problem you are interested in. Otherwise, you will quit. \ud835\udde6\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\udfee. \ud835\uddd9\ud835\uddf6\ud835\uddfb\ud835\uddf1 \ud835\uddee \ud835\uddf1\ud835\uddee\ud835\ude01\ud835\uddee \ud835\ude00\ud835\uddfc\ud835\ude02\ud835\uddff\ud835\uddf0\ud835\uddf2 Preferably a live API. If not possible, pick a static dataset from Kaggle. Here is a superb repo with a list of public APIs you can use https://lnkd.in/dgUABbqt \ud835\udde6\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\udfef. \ud835\uddd5\ud835\ude02\ud835\uddf6\ud835\uddf9\ud835\uddf1 \ud835\uddee \ud835\ude00\ud835\uddf6\ud835\uddfa\ud835\uddfd\ud835\uddf9\ud835\uddf2 \ud835\udde0\ud835\udddf \ud835\uddfa\ud835\uddfc\ud835\uddf1\ud835\uddf2\ud835\uddf9 Do not try to build THE PERFECT model, and only then move to the next phase. Because this leads you to a never-ending Jupyter-notebook-development-cycle, and you get lost. Start with basic features and a basic model. And move to the next step. \ud835\udde6\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\udff0. \ud835\uddd5\ud835\ude02\ud835\uddf6\ud835\uddf9\ud835\uddf1 \ud835\uddee \ud835\udde0\ud835\uddf6\ud835\uddfb\ud835\uddf6\ud835\uddfa\ud835\ude02\ud835\uddfa \ud835\udde9\ud835\uddf6\ud835\uddee\ud835\uddef\ud835\uddf9\ud835\uddf2 \ud835\udde3\ud835\uddff\ud835\uddfc\ud835\uddf1\ud835\ude02\ud835\uddf0\ud835\ude01 A Jupyter notebook is not enough to prove your solution might work. You need to go one step further and build a minimal working system. I recommend you follow the 3-pipeline design \u2193 https://lnkd.in/eWtTZEjT \ud835\udde6\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\udff1. \ud835\udde6\ud835\ude01\ud835\uddee\ud835\uddff\ud835\ude01 \ud835\uddf6\ud835\ude01\ud835\uddf2\ud835\uddff\ud835\uddee\ud835\ude01\ud835\uddf6\ud835\uddfb\ud835\uddf4 \ud835\uddfc\ud835\uddfb \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud835\uddfa\ud835\uddfc\ud835\uddf1\ud835\uddf2\ud835\uddf9 Once the system works, start improving it by - increasing training data size - increasing the number of features - trying a more complex ML model - optimizing model hyper-parameters \ud835\udde6\ud835\ude01\ud835\uddf2\ud835\uddfd \ud835\udff2. \ud835\udde3\ud835\ude02\ud835\ude00\ud835\uddf5 \ud835\ude06\ud835\uddfc\ud835\ude02\ud835\uddff \ud835\uddf0\ud835\uddfc\ud835\uddf1\ud835\uddf2 \ud835\ude01\ud835\uddfc \ud835\uddee \ud835\uddfd\ud835\ude02\ud835\uddef\ud835\uddf9\ud835\uddf6\ud835\uddf0 \ud835\uddda\ud835\uddf6\ud835\ude01\ud835\udddb\ud835\ude02\ud835\uddef \ud835\uddff\ud835\uddf2\ud835\uddfd\ud835\uddfc \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\ude04\ud835\uddff\ud835\uddf6\ud835\ude01\ud835\uddf2 \ud835\uddee \ud835\uddef\ud835\uddf2\ud835\uddee\ud835\ude02\ud835\ude01\ud835\uddf6\ud835\uddf3\ud835\ude02\ud835\uddf9 \ud835\udde5\ud835\uddd8\ud835\uddd4\ud835\uddd7\ud835\udde0\ud835\uddd8 The README file is the first thing your future employer will see. Explain the problem you wanted to solve and the solution you built. Here is an example https://lnkd.in/eWkEUkwW ---------- Hi there! It's Pau \ud83d\udc4b Every day I share free, hands-on content, on production-grade ML, to help you build real-world ML products. \ud835\uddd9\ud835\uddfc\ud835\uddf9\ud835\uddf9\ud835\uddfc\ud835\ude04 \ud835\uddfa\ud835\uddf2 and \ud835\uddf0\ud835\uddf9\ud835\uddf6\ud835\uddf0\ud835\uddf8 \ud835\uddfc\ud835\uddfb \ud835\ude01\ud835\uddf5\ud835\uddf2 \ud83d\udd14 so you don't miss what's coming next #machinelearning #mlops #realworldml",
+      "content_hash": "7fe0f471d9317946e4d62a4df5727185696e1ca1e86d29ff6d491798f29a195d",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7319993339066413056?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7319993339066413056%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    }
+  ],
+  "classifications": [
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7319993339066413056",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    }
+  ],
+  "classificationRun": {
+    "run_id": "d913775d-7a1a-46e6-ae49-c7ae1f657d5e",
+    "started_at": "2026-03-25T12:11:10.225451Z",
+    "finished_at": "2026-03-25T12:11:40.924197Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_fallback",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "zeroshot_min_similarity": 0.35,
+    "secondary_min_similarity": 0.5,
+    "processed_count": 1,
+    "matched_count": 0,
+    "diagnostics": {
+      "unmatched_count": 1,
+      "strategy": "deterministic keyword overlap fallback"
+    }
+  },
+  "topicCandidates": [],
+  "discoveryRun": {
+    "run_id": "15c8e7c1-430e-470c-8f91-0c5addfc4590",
+    "started_at": "2026-03-25T12:11:40.924267Z",
+    "finished_at": "2026-03-25T12:11:47.687158Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_grouping",
+    "input_count": 1,
+    "candidate_count": 0,
+    "diagnostics": {
+      "scope_counts": {
+        "unmatched": 1,
+        "low_confidence": 0,
+        "recent": 1
+      },
+      "backlog_age_days": 0,
+      "fallback_reason": "Cannot send a request, as the client has been closed."
+    }
+  },
+  "discoveryPostTopics": [],
+  "discoveryTelemetry": {
+    "candidate_count": 0,
+    "confidence_bands": {
+      "lt_0_4": 0,
+      "0_4_to_0_7": 0,
+      "gte_0_7": 0
+    },
+    "average_evidence_size": 0.0,
+    "backlog_age_days": 0,
+    "scope_counts": {
+      "unmatched": 1,
+      "low_confidence": 0,
+      "recent": 1
+    }
+  }
+}

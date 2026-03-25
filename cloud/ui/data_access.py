@@ -58,6 +58,7 @@ class UILibraryRepository:
                 SELECT
                   p.source,
                   p.source_post_id,
+                                    p.url,
                   p.title,
                   p.saved_at,
                   p.content,
@@ -128,6 +129,7 @@ class UILibraryRepository:
             SELECT
               p.source,
               p.source_post_id,
+                            p.url,
               p.title,
               p.content,
               p.saved_at,
@@ -186,6 +188,7 @@ class UILibraryRepository:
                 SELECT
                   p.source,
                   p.source_post_id,
+                                    p.url,
                   p.title,
                   p.content,
                   pt.topic_slug,
@@ -206,7 +209,7 @@ class UILibraryRepository:
         with self._db.connection() as conn:
             rows = conn.execute(
                 """
-                SELECT p.source, p.source_post_id, p.title, p.content, p.saved_at
+                                SELECT p.source, p.source_post_id, p.url, p.title, p.content, p.saved_at
                 FROM posts p
                 LEFT JOIN post_topics pt
                   ON p.source = pt.post_source

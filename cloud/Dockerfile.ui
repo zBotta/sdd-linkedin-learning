@@ -14,7 +14,9 @@ COPY cloud /app/cloud
 COPY shared /app/shared
 COPY scripts /app/scripts
 
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir streamlit httpx pydantic PyYAML \
+    && pip install --no-cache-dir . --no-deps
 
 EXPOSE 8501
 

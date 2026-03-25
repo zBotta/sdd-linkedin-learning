@@ -33,6 +33,82 @@ Important rule:
 - no database file copy sync from local to cloud
 - sync is delta-based and idempotent
 
+## What runs where
+
+This project has two runtime zones: your local machine and the cloud host.
+
+### Local machine runtime (no Dockerfile required)
+
+The local machine runs the sync and inference pipeline directly with Python:
+
+- `local_sync/linkedin_scraper.py`: opens Playwright with your local LinkedIn session
+- `local_sync/preprocessing.py`: normalization, deduplication, content hashing
+- `local_sync/taxonomy_assignment.py`: stable topic assignment
+- `local_sync/topic_discovery.py`: discovery candidate generation
+- `local_sync/topic_label_refinement.py`: optional GGUF/llama.cpp-based label refinement
+- `local_sync/sync_agent.py`: orchestrates scrape -> classify -> payload push
+
+What this means:
+
+- LinkedIn authentication happens only on your local machine.
+- BERTopic and optional GGUF inference run locally.
+- Local process sends JSON deltas to cloud API.
+
+### Cloud runtime (containerized with Dockerfile/Podman)
+
+The cloud host (or your local Podman stack) runs services built from these Dockerfiles:
+
+- `cloud/Dockerfile.api` -> FastAPI ingest API (`cloud/api/*`)
+- `cloud/Dockerfile.ui` -> Streamlit UI (`cloud/ui/*`)
+
+These services are orchestrated by `cloud/docker-compose.yml` and share a persistent SQLite volume:
+
+- API writes idempotent upserts into SQLite
+- UI reads from the same live SQLite database
+- backups, restore, and health checks are handled by `scripts/*`
+
+### Runtime schema
+
+| Zone | Main processes | Data handled | Why here |
+|---|---|---|---|
+| Local machine | Playwright scraper, BERTopic assignment/discovery, optional GGUF refinement, sync agent | LinkedIn session data, raw extracted content, local inference artifacts | Privacy boundary and local compute |
+| Cloud host | FastAPI ingest API, Streamlit UI, SQLite canonical DB | Canonical post/topic state and review data | Remote access, persistence, low-ops hosting |
+
+```mermaid
+flowchart LR
+	subgraph LOCAL[Local machine]
+		L1[LinkedIn login in browser]
+		L2[Scrape + normalize + dedup]
+		L3[Local classification\nBERTopic + optional GGUF]
+		L4[Sync agent]
+		L1 --> L2 --> L3 --> L4
+	end
+
+	L4 -->|Authenticated JSON deltas| API
+
+	subgraph CLOUD[Cloud host]
+		API[FastAPI ingest API
+        cloud/Dockerfile.api]
+		DB[(SQLite canonical DB 
+        WAL + FTS5)]
+		UI[Streamlit UI
+        cloud/Dockerfile.ui]
+		API --> DB
+		UI --> DB
+	end
+
+	USER[Phone / work browser] --> UI
+```
+NB: If you do not see the Mermaid diagram, your current Markdown preview is likely not Mermaid-enabled.
+In VS Code, open Markdown preview and ensure Mermaid support is enabled by your Markdown extension/settings.
+
+Interpretation of the Dockerfiles:
+
+- Dockerfiles package cloud services (API and UI).
+- They do not package LinkedIn login or local inference pipeline.
+- Local sync is intentionally a separate local Python runtime.
+- Cloud images intentionally avoid local BERTopic/HDBSCAN dependencies, so container builds stay lightweight and do not require compiling `hdbscan`.
+
 ## Local inference vs cloud access
 
 The design intentionally splits concerns:
@@ -122,15 +198,29 @@ LINKEDIN_HEADLESS=false
 LLAMA_CPP_MODEL_PATH=C:/models/your-model.gguf
 ```
 
+If your model is in a custom location, put that absolute path in the same env file passed to `from_env(...)`.
+Example for your setup:
+
+```dotenv
+LLAMA_CPP_MODEL_PATH=C:/Users/my_user/.models/Llama-3.2-1B-Instruct-Q4_K_S.gguf
+```
+
 Notes:
 
 - `CLOUD_INGEST_TOKEN` must match `INGEST_API_TOKEN` in `cloud/.env`.
 - Keep `LINKEDIN_HEADLESS=false` for first login so you can complete auth manually.
+- `LLAMA_CPP_MODEL_PATH` is loaded from whichever file you pass to `LocalSyncConfig.from_env(...)`.
+	In this README commands, that file is `cloud/.env`.
+- Incremental scraping is enabled by default (`LINKEDIN_STOP_ON_FIRST_SEEN=true`) so sync stops when the first already-synced post appears.
+- To force a full scrape/reprocess (useful while developing extraction changes), set `LOCAL_SYNC_FULL_RESCRAPE=true`.
 
 ### 3. Start cloud API + UI (Podman)
 
 ```powershell
 cd cloud
+# Compatibility fallback: some compose providers ignore bind.create_host_path.
+$dataDir = ((Get-Content .env | Where-Object { $_ -match '^DATA_DIR=' } | Select-Object -First 1).Split('=',2)[1]).Trim()
+New-Item -ItemType Directory -Force $dataDir | Out-Null
 podman compose --env-file .env up -d --build
 cd ..
 ```
@@ -147,8 +237,10 @@ Invoke-RestMethod -Headers @{ Authorization = "Bearer $token" } http://localhost
 Run one sync cycle from repository root:
 
 ```powershell
-python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env()).run_once(limit=100); print(json.dumps(result, indent=2))"
+python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).run_once(limit=100); print(json.dumps(result, indent=2))"
 ```
+
+Note: run this from repository root (`sdd-linkedin-learning`) so local source modules are imported.
 
 Expected behavior:
 
@@ -174,7 +266,7 @@ Open UI:
 ### 6. Optional manual backlog reprocess
 
 ```powershell
-python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env()).manual_reprocess_backlog(limit=500); print(json.dumps(result, indent=2))"
+python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).manual_reprocess_backlog(limit=500); print(json.dumps(result, indent=2))"
 ```
 
 ### 7. Troubleshooting first run
@@ -182,7 +274,20 @@ python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_a
 - If push fails with auth error, confirm token parity between `.env` and `cloud/.env`.
 - If push fails with connection error, verify API is running on port 8000.
 - If zero posts are extracted, relaunch with `LINKEDIN_HEADLESS=false`, confirm LinkedIn Saved page access, and rerun.
+- If LinkedIn redirects to checkpoint/challenge and Playwright reports interrupted navigation, complete verification in the opened browser and press Enter; the scraper now retries saved-posts navigation after auth.
 - If GGUF refinement is not used, verify `LLAMA_CPP_MODEL_PATH` points to an existing `.gguf` and `llama-cpp-python` is installed.
+- If Playwright browser download fails with TLS/certificate errors, the scraper now falls back to installed Chrome, then Microsoft Edge channel automatically.
+- If embedding model download fails with TLS/certificate errors (`CERTIFICATE_VERIFY_FAILED` from huggingface.co), use one of these local sync options:
+	- set `LOCAL_SYNC_DISABLE_BERTOPIC=true` to skip BERTopic embedding downloads and use deterministic keyword fallback only
+	- or set `LOCAL_SYNC_EMBEDDINGS_LOCAL_ONLY=true` to use only local Hugging Face cache for `sentence-transformers/all-MiniLM-L6-v2` (no network calls)
+	- if you use local-only mode, pre-warm cache once on a trusted network: `python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"`
+- If needed, set an explicit browser executable path before running sync:
+
+```powershell
+$env:PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+# Example Edge path:
+# $env:PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+```
 
 ## Deployment (Podman on local machine)
 
@@ -229,6 +334,9 @@ DATA_DIR=../.state/podman-data
 
 ```powershell
 cd cloud
+# Compatibility fallback: some compose providers ignore bind.create_host_path.
+$dataDir = ((Get-Content .env | Where-Object { $_ -match '^DATA_DIR=' } | Select-Object -First 1).Split('=',2)[1]).Trim()
+New-Item -ItemType Directory -Force $dataDir | Out-Null
 podman compose --env-file .env up -d --build
 ```
 

@@ -37,6 +37,8 @@ class LocalSyncConfig:
     cloud_api_base_url: str
     cloud_ingest_token: str
     push_timeout_seconds: int
+    linkedin_stop_on_first_seen: bool = True
+    full_rescrape: bool = False
     taxonomy_path: Path = Path("topics.yaml")
     zeroshot_min_similarity: float | None = None
     secondary_min_similarity: float | None = None
@@ -65,6 +67,11 @@ class LocalSyncConfig:
             linkedin_profile_dir=linkedin_profile_dir,
             linkedin_headless=_parse_bool(get("LINKEDIN_HEADLESS", "false"), False),
             linkedin_session_wait_seconds=int(get("LINKEDIN_SESSION_WAIT_SECONDS", "120")),
+            linkedin_stop_on_first_seen=_parse_bool(
+                get("LINKEDIN_STOP_ON_FIRST_SEEN", "true"),
+                True,
+            ),
+            full_rescrape=_parse_bool(get("LOCAL_SYNC_FULL_RESCRAPE", "false"), False),
             push_enabled=_parse_bool(get("PUSH_ENABLED", "false"), False),
             cloud_api_base_url=get("CLOUD_API_BASE_URL", ""),
             cloud_ingest_token=get("CLOUD_INGEST_TOKEN", ""),

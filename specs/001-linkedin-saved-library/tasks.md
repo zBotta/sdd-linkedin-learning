@@ -122,6 +122,14 @@
 
 ---
 
+## Post-Phase Scope Updates
+
+- [X] T064 [US1] Add incremental scrape early-stop (first already-synced post) with configurable flag in local_sync/linkedin_scraper.py and local_sync/config.py
+- [X] T065 [US1] Add explicit full re-scrape override path for development/backfill runs in local_sync/sync_agent.py and .env.example
+- [X] T066 [US3] Expose clickable source post URL in Inbox/Review UI surfaces via cloud/ui/data_access.py, cloud/ui/pages/home.py, and cloud/ui/pages/review.py
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies

@@ -11,7 +11,11 @@ services:
     ports:
       - "${API_PORT:-8000}:8000"
     volumes:
-      - ${DATA_DIR:-/srv/linkedin-library/data}:/data
+      - type: bind
+        source: ${DATA_DIR:-/srv/linkedin-library/data}
+        target: /data
+        bind:
+          create_host_path: true
     healthcheck:
       test:
         [
@@ -36,7 +40,11 @@ services:
     ports:
       - "${UI_PORT:-8501}:8501"
     volumes:
-      - ${DATA_DIR:-/srv/linkedin-library/data}:/data
+      - type: bind
+        source: ${DATA_DIR:-/srv/linkedin-library/data}
+        target: /data
+        bind:
+          create_host_path: true
     depends_on:
       api:
         condition: service_healthy

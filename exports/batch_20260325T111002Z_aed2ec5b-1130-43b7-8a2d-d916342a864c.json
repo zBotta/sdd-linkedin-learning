@@ -1,0 +1,89 @@
+{
+  "batchId": "aed2ec5b-1130-43b7-8a2d-d916342a864c",
+  "exportedAt": "2026-03-25T11:10:02.689340+00:00",
+  "posts": [
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7441053556767465472",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441053556767465472?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441053556767465472%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-25T11:09:30.130421Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 4d \u2022 4d Visible to everyone Tool Calling with Small Language Models. Step by step \u2193 In this blog post you will find a hands-on example showing how to do tool calling with a small language model. https://lnkd.in/d6vZpPHK Next week I will release a guide to generate synthetic data and fine-tune the model. Let me know what you think in the comments below. And if you have questions, please ask \u2026see more",
+      "content_hash": "5d0174cc8fd41736270e1c581caefa01a5d891b3a98be989697e7cc499ed122c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7441053556767465472?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441053556767465472%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    }
+  ],
+  "classifications": [
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7441053556767465472",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.5714,
+          "role": "primary"
+        }
+      ]
+    }
+  ],
+  "classificationRun": {
+    "run_id": "bcbd304c-c113-43df-bd44-26b82c77d0b7",
+    "started_at": "2026-03-25T11:09:30.636287Z",
+    "finished_at": "2026-03-25T11:09:56.268381Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_fallback",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "zeroshot_min_similarity": 0.35,
+    "secondary_min_similarity": 0.5,
+    "processed_count": 1,
+    "matched_count": 1,
+    "diagnostics": {
+      "unmatched_count": 0,
+      "strategy": "deterministic keyword overlap fallback"
+    }
+  },
+  "topicCandidates": [],
+  "discoveryRun": {
+    "run_id": "b5bb86d8-77fd-4363-b49d-73f55f9fc036",
+    "started_at": "2026-03-25T11:09:56.268447Z",
+    "finished_at": "2026-03-25T11:10:02.685749Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_grouping",
+    "input_count": 1,
+    "candidate_count": 0,
+    "diagnostics": {
+      "scope_counts": {
+        "unmatched": 0,
+        "low_confidence": 0,
+        "recent": 1
+      },
+      "backlog_age_days": 0,
+      "fallback_reason": "Cannot send a request, as the client has been closed."
+    }
+  },
+  "discoveryPostTopics": [],
+  "discoveryTelemetry": {
+    "candidate_count": 0,
+    "confidence_bands": {
+      "lt_0_4": 0,
+      "0_4_to_0_7": 0,
+      "gte_0_7": 0
+    },
+    "average_evidence_size": 0.0,
+    "backlog_age_days": 0,
+    "scope_counts": {
+      "unmatched": 0,
+      "low_confidence": 0,
+      "recent": 1
+    }
+  }
+}

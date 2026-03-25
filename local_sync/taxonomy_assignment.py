@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import re
 from importlib.util import find_spec
 from collections.abc import Iterable
@@ -11,6 +12,27 @@ from shared.taxonomy import TaxonomyConfig, TopicDefinition
 
 
 _TOKEN_RE = re.compile(r"[a-z0-9_]+")
+
+
+def _parse_bool(value: str | None, default: bool = False) -> bool:
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _bertopic_enabled() -> bool:
+    return not _parse_bool(os.getenv("LOCAL_SYNC_DISABLE_BERTOPIC"), False)
+
+
+def _build_embedding_model() -> object:
+    model_name = "sentence-transformers/all-MiniLM-L6-v2"
+    if not _parse_bool(os.getenv("LOCAL_SYNC_EMBEDDINGS_LOCAL_ONLY"), False):
+        return model_name
+
+    from sentence_transformers import SentenceTransformer
+
+    # Force local cache usage and avoid network calls (useful behind restrictive TLS proxies).
+    return SentenceTransformer(model_name, local_files_only=True)
 
 
 def _tokens(text: str) -> set[str]:
@@ -56,7 +78,7 @@ class TaxonomyAssigner:
         )
 
         post_list = list(posts)
-        if find_spec("bertopic") is not None:
+        if _bertopic_enabled() and find_spec("bertopic") is not None:
             try:
                 results = self._assign_with_bertopic(post_list, taxonomy, min_similarity, secondary_similarity)
                 run.backend = "bertopic_zeroshot"
@@ -141,7 +163,7 @@ class TaxonomyAssigner:
             zeroshot_topic_list=[topic.name for topic in taxonomy.topics],
             zeroshot_min_similarity=min_similarity,
             calculate_probabilities=True,
-            embedding_model="sentence-transformers/all-MiniLM-L6-v2",
+            embedding_model=_build_embedding_model(),
             verbose=False,
         )
         topics, probabilities = topic_model.fit_transform(docs)

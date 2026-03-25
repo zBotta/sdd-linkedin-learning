@@ -29,4 +29,6 @@ def render_inbox(repo: UILibraryRepository) -> None:
     for row in rows:
         with st.expander(f"{row.get('title') or '(untitled)'} | {row.get('topic_slug') or 'unassigned'}"):
             st.caption(f"Saved: {row.get('saved_at')} | Confidence: {row.get('confidence')}")
+            if row.get("url"):
+                st.markdown(f"[Open LinkedIn post]({row['url']})")
             st.write(row.get("content", ""))

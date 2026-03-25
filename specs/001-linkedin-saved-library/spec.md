@@ -9,16 +9,24 @@
 
 ### Session 2026-03-24
 
-- Q: What extraction strategy should V1 assume for LinkedIn Saved posts? -> A: Always open every saved post detail page and extract full content on each sync run.
+- Q: What extraction strategy should V1 assume for LinkedIn Saved posts? -> A: Extract from saved-post cards in the saved-items feed, stop early on the first already-synced post by default, and support an explicit full re-scrape override for development/backfill runs.
 - Q: Should V1 persist normalized JSON only, or also raw HTML snapshots? -> A: Persist normalized JSON only; do not persist raw HTML snapshots.
 - Q: Should V1 allow one primary topic plus secondary topics, or only one stable label? -> A: Allow one primary stable topic plus secondary topics above a stricter secondary threshold.
 - Q: What discovery scope and cadence should V1 use? -> A: Run daily discovery on unmatched posts, low-confidence posts, and a rolling recent window.
 - Q: After topic promotion, should old unmatched posts be reprocessed automatically, manually, or not at all? -> A: Reprocess manually via explicit user action; do not auto-reprocess in V1.
-- Q: What weak-content enrichment policy should V1 use? -> A: No enrichment in V1; classify only extracted post body from saved post detail pages.
+- Q: What weak-content enrichment policy should V1 use? -> A: No enrichment in V1; classify only extracted post body from LinkedIn saved-post surfaces.
 - Q: Should taxonomy assignment run per post or in local batches? -> A: Run in small local batches (default 16) while emitting per-post topic/confidence outputs.
 - Q: Should summaries be included in V1, and are they required when local LLM is disabled? -> A: Include summaries as optional enrichments; system remains fully functional when local LLM is disabled.
 - Q: What default local models should V1 use for embeddings and topic naming/refinement? -> A: Use all-MiniLM-L6-v2 embeddings and Llama-3.2-1B-Instruct-Q4_K_M (GGUF/llama.cpp) for naming/refinement.
 - Q: Which review actions are essential in V1 versus deferrable? -> A: Essential actions are approve assignment, reassign primary topic, adjust secondary topics, promote/merge/reject candidates, and manual backlog reprocess; bulk and advanced audit tooling are deferred.
+
+### Session 2026-03-25
+
+- Q: For the extraction source-of-truth in V1, which should the spec define as canonical? -> A: Use saved-post feed/card extraction as canonical V1 source, with incremental stop-on-seen and optional full re-scrape override.
+- Q: When a previously synced post is no longer visible in a later LinkedIn scrape, what should V1 do? -> A: Keep existing record unchanged (no auto-delete, no auto-unsave).
+- Q: For incremental scraping runs (stop-on-first-seen enabled), what minimum quality signal should V1 require? -> A: Require at least 95% success on newly discovered posts only; full coverage is guaranteed only in full re-scrape mode.
+- Q: If delta push to cloud fails for a sync run, what should happen to local "seen/synced" checkpoint state for those posts? -> A: Do not mark failed-push posts as synced; retry in next run automatically.
+- Q: For cloud delta push retries in V1, what policy should the spec require? -> A: Up to 3 retries in the same run with exponential backoff, then leave unsynced for next run.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -104,11 +112,14 @@ filtered full-text searches, and creating or editing notes on selected posts.
 
 - LinkedIn session is expired locally during sync start.
 - A post is edited or removed on LinkedIn after a prior sync.
+- A previously synced post is no longer visible in later scrapes; V1 retains the canonical record unchanged unless explicitly modified by a user action.
 - Duplicate posts are encountered across multiple sync runs.
 - A post has missing author/title fields or unsupported language metadata.
 - Classification confidence is below threshold for all stable topics.
 - Discovery produces semantically overlapping candidate topics.
 - Delta push is retried after partial network failure.
+- Delta push fails after extraction/classification; unsent posts remain unsynced locally and are retried automatically in the next run.
+- Delta push retries are exhausted in-run; posts remain unsynced and are retried automatically in a later run.
 - Ingest receives duplicate deltas for the same post update.
 - Remote authentication fails for UI or ingest API requests.
 - Backup process runs while the canonical database is serving live queries.
@@ -126,16 +137,24 @@ filtered full-text searches, and creating or editing notes on selected posts.
   tenancy, or team workspaces.
 - **FR-002**: System MUST run a local sync agent that reads saved LinkedIn posts from the user's
   local authenticated browser session.
-- **FR-002a**: Sync extraction MUST open each saved post detail page during sync to capture full
-  post content and metadata for normalization and classification.
+- **FR-002a**: Sync extraction MUST capture post content and metadata from LinkedIn saved items
+  using a deterministic local extraction strategy suitable for normalization and classification.
+- **FR-002b**: Sync extraction MUST support incremental early-stop behavior that halts scraping
+  when the first already-synced post is encountered.
+- **FR-002c**: Sync extraction MUST provide an explicit full re-scrape override for development,
+  troubleshooting, or controlled backfill workflows.
+- **FR-002d**: Incremental scrape quality targets in V1 MUST apply to newly discovered posts;
+  full-library coverage guarantees apply only when full re-scrape mode is explicitly used.
 - **FR-003**: System MUST NOT store LinkedIn credentials, cookies, or browser session state in cloud
   infrastructure.
 - **FR-004**: System MUST ingest post text and metadata, normalize content, and deduplicate records
   before persistence.
+- **FR-004c**: Absence of a previously synced post in a subsequent scrape MUST NOT trigger automatic
+  deletion, unsave marking, or archival of the canonical post record in V1.
 - **FR-004a**: V1 persistence MUST store normalized structured JSON only and MUST NOT persist raw
   HTML snapshots.
 - **FR-004b**: V1 classification input MUST use extracted post body and visible post metadata from
-  saved post detail pages only; weak-content enrichment from repost commentary, linked snippets,
+  LinkedIn saved-post surfaces only; weak-content enrichment from repost commentary, linked snippets,
   or article-title fallback is out of scope for V1.
 - **FR-005**: System MUST classify posts into predefined stable topics using BERTopic-based
   taxonomy assignment with configurable confidence thresholds.
@@ -163,6 +182,8 @@ filtered full-text searches, and creating or editing notes on selected posts.
   discovered-topic candidate count, review backlog size, and topic distribution summary.
 - **FR-013**: Inbox page MUST display newly ingested posts with assigned stable topics,
   classification confidence, and review actions.
+- **FR-013a**: Inbox and Review experiences MUST expose the original post URL when available so
+  users can open the source LinkedIn post directly.
 - **FR-014**: Topics page MUST display stable taxonomy topics, discovered candidates,
   topic detail views, and per-topic post lists.
 - **FR-015**: Search page MUST support full-text search across title, content, summary,
@@ -186,6 +207,10 @@ filtered full-text searches, and creating or editing notes on selected posts.
 - **FR-020**: System MUST maintain a canonical cloud database and ingest JSON deltas using
   idempotent upserts.
 - **FR-021**: Sync behavior MUST NOT require database-file replacement or UI restart.
+- **FR-021a**: Posts from a run with failed delta push MUST remain unsynced in local checkpoint state and
+  MUST be eligible for automatic retry in the next sync run.
+- **FR-021b**: Delta push in V1 MUST attempt up to 3 retries in the same run using exponential
+  backoff before deferring unsynced posts to a later run.
 - **FR-022**: Canonical persistence MUST survive host restarts and failures.
 - **FR-023**: System MUST provide automated local sync scheduling, deployment/bootstrap automation,
   health monitoring, restart handling, and backups.
@@ -244,8 +269,9 @@ filtered full-text searches, and creating or editing notes on selected posts.
 
 ### Measurable Outcomes
 
-- **SC-001**: A manual sync run ingests and classifies at least 95% of newly saved posts in one pass,
-  with failures surfaced in diagnostics.
+- **SC-001**: An incremental sync run ingests and classifies at least 95% of newly discovered posts
+  in one pass, with failures surfaced in diagnostics; full re-scrape mode is used when complete
+  library coverage validation is required.
 - **SC-002**: 100% of matched known-topic posts receive stable-topic assignments above configured
   confidence threshold without manual intervention.
 - **SC-003**: 100% of unmatched or low-confidence posts are routed to the review/discovery workflow

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from datetime import UTC, datetime, timedelta
 from importlib.util import find_spec
 from pathlib import Path
@@ -14,6 +15,27 @@ from shared.models import (
 from shared.schemas import NormalizedPost
 
 from .topic_label_refinement import RefinementConfig, build_representation_model
+
+
+def _parse_bool(value: str | None, default: bool = False) -> bool:
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _bertopic_enabled() -> bool:
+    return not _parse_bool(os.getenv("LOCAL_SYNC_DISABLE_BERTOPIC"), False)
+
+
+def _build_embedding_model() -> object:
+    model_name = "sentence-transformers/all-MiniLM-L6-v2"
+    if not _parse_bool(os.getenv("LOCAL_SYNC_EMBEDDINGS_LOCAL_ONLY"), False):
+        return model_name
+
+    from sentence_transformers import SentenceTransformer
+
+    # Force local cache usage and avoid network calls (useful behind restrictive TLS proxies).
+    return SentenceTransformer(model_name, local_files_only=True)
 
 
 class TopicDiscoveryPipeline:
@@ -97,7 +119,7 @@ class TopicDiscoveryPipeline:
             return [], run
 
         candidates: list[DiscoveryCandidate]
-        if find_spec("bertopic") is not None:
+        if _bertopic_enabled() and find_spec("bertopic") is not None:
             try:
                 candidates = self._discover_with_bertopic(selected, taxonomy_version, run.run_id)
                 run.backend = "bertopic_clustering"
@@ -146,7 +168,7 @@ class TopicDiscoveryPipeline:
         )
 
         topic_model = BERTopic(
-            embedding_model="sentence-transformers/all-MiniLM-L6-v2",
+            embedding_model=_build_embedding_model(),
             vectorizer_model=vectorizer,
             representation_model=representation_model,
             calculate_probabilities=True,

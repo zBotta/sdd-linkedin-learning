@@ -17,6 +17,8 @@ def render(repo: UILibraryRepository) -> None:
     if low_conf:
         for row in low_conf:
             with st.expander(f"{row.get('title') or '(untitled)'} | {row.get('confidence')}"):
+                if row.get("url"):
+                    st.markdown(f"[Open LinkedIn post]({row['url']})")
                 st.write(row.get("content", ""))
                 col_a, col_b = st.columns(2)
                 if col_a.button("Approve", key=f"approve-{row['source']}-{row['source_post_id']}"):
