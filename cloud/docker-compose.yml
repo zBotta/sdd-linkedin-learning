@@ -1,0 +1,53 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: cloud/Dockerfile.api
+    container_name: linkedin-library-api
+    env_file:
+      - .env
+    environment:
+      CLOUD_DB_PATH: ${CLOUD_DB_PATH:-/data/library.db}
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ${DATA_DIR:-/srv/linkedin-library/data}:/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "python -c \"import os,sys,urllib.request;req=urllib.request.Request('http://localhost:8000/health',headers={'Authorization':'Bearer '+os.getenv('INGEST_API_TOKEN','')});urllib.request.urlopen(req,timeout=5);sys.exit(0)\"",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: ..
+      dockerfile: cloud/Dockerfile.ui
+    container_name: linkedin-library-ui
+    env_file:
+      - .env
+    environment:
+      CLOUD_DB_PATH: ${CLOUD_DB_PATH:-/data/library.db}
+    ports:
+      - "${UI_PORT:-8501}:8501"
+    volumes:
+      - ${DATA_DIR:-/srv/linkedin-library/data}:/data
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "python -c \"import sys,urllib.request;urllib.request.urlopen('http://localhost:8501/_stcore/health',timeout=5);sys.exit(0)\"",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped

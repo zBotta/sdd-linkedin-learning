@@ -107,18 +107,18 @@
 
 **Independent Test**: Bootstrap a fresh EC2 host, bring up API/UI with Docker Compose, run health checks, execute backup + restore drill, and verify quickstart flow.
 
-- [ ] T052 [P] Build API container image definition in cloud/Dockerfile.api
-- [ ] T053 [P] Build UI container image definition in cloud/Dockerfile.ui
-- [ ] T054 Configure Docker Compose with persistent volume mounts, healthchecks, and restart policies in cloud/docker-compose.yml
-- [ ] T055 Implement EC2 bootstrap automation with Parameter Store config loading in cloud/bootstrap/ec2_user_data.sh
-- [ ] T056 [P] Implement runtime health check script for API/UI/DB connectivity in scripts/healthcheck.sh
-- [ ] T057 Implement SQLite-safe backup automation (backup API or VACUUM INTO pattern) in scripts/backup_db.py
-- [ ] T058 Implement restore drill script and validation checks in scripts/restore_db.sh
-- [ ] T059 Configure scheduler scripts for daily discovery and periodic backup jobs in scripts/install_cron.sh
-- [ ] T060 Add deployment runbook and operations checklist in docs/deployment.md
-- [ ] T061 Add architecture and module-boundary documentation for local_sync/cloud/shared in docs/architecture.md
-- [ ] T062 Add V1 scope guardrails (single-user, no cloud scraping, no out-of-scope features) in docs/v1-scope.md
-- [ ] T063 Add end-to-end quickstart validation test for local sync -> ingest -> UI visibility -> review path in tests/integration/test_quickstart_flow.py
+- [X] T052 [P] Build API container image definition in cloud/Dockerfile.api
+- [X] T053 [P] Build UI container image definition in cloud/Dockerfile.ui
+- [X] T054 Configure Docker Compose with persistent volume mounts, healthchecks, and restart policies in cloud/docker-compose.yml
+- [X] T055 Implement EC2 bootstrap automation with Parameter Store config loading in cloud/bootstrap/ec2_user_data.sh
+- [X] T056 [P] Implement runtime health check script for API/UI/DB connectivity in scripts/healthcheck.sh
+- [X] T057 Implement SQLite-safe backup automation (backup API or VACUUM INTO pattern) in scripts/backup_db.py
+- [X] T058 Implement restore drill script and validation checks in scripts/restore_db.sh
+- [X] T059 Configure scheduler scripts for daily discovery and periodic backup jobs in scripts/install_cron.sh
+- [X] T060 Add deployment runbook and operations checklist in docs/deployment.md
+- [X] T061 Add architecture and module-boundary documentation for local_sync/cloud/shared in docs/architecture.md
+- [X] T062 Add V1 scope guardrails (single-user, no cloud scraping, no out-of-scope features) in docs/v1-scope.md
+- [X] T063 Add end-to-end quickstart validation test for local sync -> ingest -> UI visibility -> review path in tests/integration/test_quickstart_flow.py
 
 ---
 
