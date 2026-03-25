@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from datetime import datetime, timezone
+import time
 from typing import Any
 from uuid import uuid4
 from urllib import error, request
@@ -116,17 +117,46 @@ class PushClient:
             "Authorization": f"Bearer {self._token}",
         }
 
-        req = request.Request(endpoint, data=body, headers=headers, method="POST")
+        max_attempts = 3
+        delay_seconds = 1.0
+        last_result: PushResult | None = None
 
-        try:
-            with request.urlopen(req, timeout=self._timeout_seconds) as response:
-                return PushResult(
-                    applied=200 <= response.status < 300,
+        for attempt in range(1, max_attempts + 1):
+            req = request.Request(endpoint, data=body, headers=headers, method="POST")
+            try:
+                with request.urlopen(req, timeout=self._timeout_seconds) as response:
+                    return PushResult(
+                        applied=200 <= response.status < 300,
+                        dry_run=False,
+                        status_code=response.status,
+                        message=f"Payload sent (attempt {attempt}/{max_attempts})",
+                    )
+            except error.HTTPError as exc:
+                last_result = PushResult(
+                    applied=False,
                     dry_run=False,
-                    status_code=response.status,
-                    message="Payload sent",
+                    status_code=exc.code,
+                    message=f"HTTPError attempt {attempt}/{max_attempts}: {exc}",
                 )
-        except error.HTTPError as exc:
-            return PushResult(applied=False, dry_run=False, status_code=exc.code, message=str(exc))
-        except error.URLError as exc:
-            return PushResult(applied=False, dry_run=False, status_code=None, message=str(exc))
+                retryable = 500 <= exc.code < 600 or exc.code == 429
+                if not retryable or attempt == max_attempts:
+                    return last_result
+            except error.URLError as exc:
+                last_result = PushResult(
+                    applied=False,
+                    dry_run=False,
+                    status_code=None,
+                    message=f"URLError attempt {attempt}/{max_attempts}: {exc}",
+                )
+                if attempt == max_attempts:
+                    return last_result
+
+            time.sleep(delay_seconds)
+            delay_seconds *= 2
+
+        return last_result or PushResult(
+            applied=False,
+            dry_run=False,
+            status_code=None,
+            message="Push failed after retries",
+        )

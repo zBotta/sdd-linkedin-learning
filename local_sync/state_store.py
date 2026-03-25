@@ -14,15 +14,37 @@ class StateStore:
         self._path = path
         self._state = self._load()
 
+    @staticmethod
+    def _empty_state() -> dict[str, object]:
+        return {
+            "seen_source_keys": [],
+            "last_run_at": None,
+            "last_batch_id": None,
+        }
+
     def _load(self) -> dict[str, object]:
         if not self._path.exists():
-            return {"seen_source_keys": [], "last_run_at": None, "last_batch_id": None}
+            return self._empty_state()
 
-        with self._path.open("r", encoding="utf-8") as handle:
-            data = json.load(handle)
-        if "seen_source_keys" not in data:
-            data["seen_source_keys"] = []
-        return data
+        try:
+            with self._path.open("r", encoding="utf-8") as handle:
+                data = json.load(handle)
+        except (json.JSONDecodeError, OSError, ValueError):
+            return self._empty_state()
+
+        if not isinstance(data, dict):
+            return self._empty_state()
+
+        seen = data.get("seen_source_keys", [])
+        if not isinstance(seen, list):
+            seen = []
+
+        cleaned_seen = sorted({str(item).strip() for item in seen if str(item).strip()})
+        return {
+            "seen_source_keys": cleaned_seen,
+            "last_run_at": data.get("last_run_at"),
+            "last_batch_id": data.get("last_batch_id"),
+        }
 
     @property
     def seen_source_keys(self) -> set[str]:

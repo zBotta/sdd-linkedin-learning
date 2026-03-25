@@ -193,9 +193,14 @@ PUSH_ENABLED=true
 CLOUD_API_BASE_URL=http://localhost:8000
 CLOUD_INGEST_TOKEN=change-this-token
 LINKEDIN_HEADLESS=false
+LINKEDIN_STOP_ON_FIRST_SEEN=true
+LOCAL_SYNC_FULL_RESCRAPE=false
 
 # Optional GGUF refinement (leave empty to disable)
 LLAMA_CPP_MODEL_PATH=C:/models/your-model.gguf
+
+# Optional local embedding fallback for restricted networks
+LOCAL_EMBEDDING_MODEL_PATH=C:/models/all-MiniLM-L6-v2
 ```
 
 If your model is in a custom location, put that absolute path in the same env file passed to `from_env(...)`.
@@ -213,6 +218,8 @@ Notes:
 	In this README commands, that file is `cloud/.env`.
 - Incremental scraping is enabled by default (`LINKEDIN_STOP_ON_FIRST_SEEN=true`) so sync stops when the first already-synced post appears.
 - To force a full scrape/reprocess (useful while developing extraction changes), set `LOCAL_SYNC_FULL_RESCRAPE=true`.
+- Use `LINKEDIN_STOP_ON_FIRST_SEEN=true` for routine incremental runs.
+- Use `LOCAL_SYNC_FULL_RESCRAPE=true` only for explicit full backfill/debug runs.
 
 ### 3. Start cloud API + UI (Podman)
 
@@ -288,6 +295,9 @@ $env:PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH = "C:\Program Files\Google\Chrome\Appli
 # Example Edge path:
 # $env:PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 ```
+
+- If BERTopic embedding download fails with SSL/certificate trust errors, configure trusted corporate CA/proxy settings or set a valid `LOCAL_EMBEDDING_MODEL_PATH`.
+- If `LOCAL_EMBEDDING_MODEL_PATH` is set but invalid/unreadable, sync fails with explicit path validation guidance.
 
 ## Deployment (Podman on local machine)
 

@@ -30,6 +30,7 @@ class LinkedInSavedScraper:
         from playwright.sync_api import sync_playwright
 
         self._config.linkedin_profile_dir.mkdir(parents=True, exist_ok=True)
+        known = seen_source_keys or set()
 
         with sync_playwright() as playwright:
             launch_kwargs: dict[str, Any] = {
@@ -56,6 +57,7 @@ class LinkedInSavedScraper:
                         context = playwright.chromium.launch_persistent_context(**fallback_kwargs)
                 else:
                     raise
+
             page = context.new_page()
             self._open_saved_posts(page)
 
@@ -66,10 +68,20 @@ class LinkedInSavedScraper:
                 input()
                 self._open_saved_posts(page)
 
-            extracted = self._extract_stub(
+            extracted = self._extract_posts(
                 page,
                 limit=limit,
                 seen_source_keys=seen_source_keys or set(),
+
+                stop_on_first_seen=stop_on_first_seen,
+            )
+            context.close()
+            return extracted
+
+            extracted = self._extract_posts(
+                page,
+                limit=limit,
+                seen_source_keys=known,
                 stop_on_first_seen=stop_on_first_seen,
             )
             context.close()
@@ -87,6 +99,7 @@ class LinkedInSavedScraper:
         except Exception as exc:
             # LinkedIn often redirects login/checkpoint flows while navigation is in progress.
             # In that case Playwright reports an interrupted navigation; keep current page state.
+
             if "interrupted by another navigation" not in str(exc):
                 raise
 
@@ -97,7 +110,7 @@ class LinkedInSavedScraper:
             return
         self._safe_goto(page, saved_posts_url)
 
-    def _extract_stub(
+    def _extract_posts(
         self,
         page: Any,
         limit: int,
@@ -109,6 +122,7 @@ class LinkedInSavedScraper:
         self._expand_see_more(page)
 
         # Load a small viewport window so first saved cards are available for extraction.
+
         for _ in range(3):
             try:
                 page.mouse.wheel(0, 1800)
@@ -120,11 +134,11 @@ class LinkedInSavedScraper:
         raw_candidates = page.evaluate(
             r"""
             (maxItems) => {
-                            const norm = (s) => (s || '')
-                                .replace(/…\s*see more/gi, ' ')
-                                .replace(/\.\.\.\s*see more/gi, ' ')
-                                .replace(/\s+/g, ' ')
-                                .trim();
+              const norm = (s) => (s || '')
+                .replace(/…\s*see more/gi, ' ')
+                .replace(/\.\.\.\s*see more/gi, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
               const anchors = Array.from(document.querySelectorAll(
                 'a[href*="/feed/update/"],a[href*="/posts/"],a[href*="/pulse/"]'
               ));
@@ -165,8 +179,7 @@ class LinkedInSavedScraper:
 
         items: list[dict[str, Any]] = []
         seen_ids: set[str] = set()
-        seen_streak = 0
-        max_seen_streak = 3
+
         for idx, row in enumerate(raw_candidates or []):
             if len(items) >= limit:
                 break
@@ -179,14 +192,8 @@ class LinkedInSavedScraper:
             source_post_id = self._derive_source_post_id_from_hint(row.get("idHint"), post_url, idx)
 
             source_key = f"linkedin_saved:{source_post_id}"
-            if source_key in seen_source_keys:
-                seen_streak += 1
-                # LinkedIn cards are not always strictly ordered; only stop after
-                # encountering a short consecutive run of already-synced posts.
-                if stop_on_first_seen and len(items) > 0 and seen_streak >= max_seen_streak:
-                    break
-                continue
-            seen_streak = 0
+            if stop_on_first_seen and source_key in seen_source_keys:
+                break
 
             if source_post_id in seen_ids:
                 continue

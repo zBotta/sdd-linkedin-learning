@@ -46,10 +46,12 @@ class TopicDiscoveryPipeline:
         low_confidence_threshold: float = 0.45,
         recent_window_days: int = 7,
         llama_cpp_model_path: str | None = None,
+        local_embedding_model_path: str | None = None,
     ) -> None:
         self._low_confidence_threshold = low_confidence_threshold
         self._recent_window_days = recent_window_days
         self._llama_cpp_model_path = llama_cpp_model_path
+        self._local_embedding_model_path = local_embedding_model_path
 
     def select_scope(
         self,
@@ -124,6 +126,12 @@ class TopicDiscoveryPipeline:
                 candidates = self._discover_with_bertopic(selected, taxonomy_version, run.run_id)
                 run.backend = "bertopic_clustering"
             except Exception as exc:
+                if self._is_embedding_artifact_error(exc):
+                    raise RuntimeError(
+                        "Embedding model artifacts are unavailable due SSL/certificate trust issues. "
+                        "Configure trusted corporate CA/proxy settings or set LOCAL_EMBEDDING_MODEL_PATH "
+                        "to a readable local model path."
+                    ) from exc
                 run.diagnostics["fallback_reason"] = str(exc)
                 candidates = self._discover_with_keyword_grouping(selected, taxonomy_version, run.run_id)
         else:
@@ -155,6 +163,7 @@ class TopicDiscoveryPipeline:
 
         docs = [f"{post.title or ''} {post.content}" for post in posts]
         vectorizer = CountVectorizer(stop_words="english", ngram_range=(1, 2), min_df=1)
+        embedding_model = self._resolve_embedding_model()
 
         representation_model = build_representation_model(
             RefinementConfig(
@@ -168,7 +177,7 @@ class TopicDiscoveryPipeline:
         )
 
         topic_model = BERTopic(
-            embedding_model=_build_embedding_model(),
+            embedding_model=embedding_model,
             vectorizer_model=vectorizer,
             representation_model=representation_model,
             calculate_probabilities=True,
@@ -248,3 +257,43 @@ class TopicDiscoveryPipeline:
         oldest = min(post.saved_at for post in posts)
         now = datetime.now(UTC)
         return max((now - oldest).days, 0)
+
+    def _resolve_embedding_model(self) -> str:
+        if not self._local_embedding_model_path:
+            return "sentence-transformers/all-MiniLM-L6-v2"
+
+        model_path = Path(self._local_embedding_model_path)
+        if not model_path.exists():
+            raise ValueError(
+                f"LOCAL_EMBEDDING_MODEL_PATH is invalid: '{model_path}'. "
+                "File or directory does not exist."
+            )
+        if not model_path.is_file() and not model_path.is_dir():
+            raise ValueError(
+                f"LOCAL_EMBEDDING_MODEL_PATH is invalid: '{model_path}'. "
+                "Expected a readable file or directory."
+            )
+
+        try:
+            if model_path.is_file():
+                with model_path.open("rb"):
+                    pass
+        except OSError as exc:
+            raise ValueError(
+                f"LOCAL_EMBEDDING_MODEL_PATH is unreadable: '{model_path}'."
+            ) from exc
+
+        return str(model_path)
+
+    @staticmethod
+    def _is_embedding_artifact_error(exc: Exception) -> bool:
+        lowered = str(exc).lower()
+        markers = [
+            "certificate_verify_failed",
+            "ssl",
+            "certificate",
+            "huggingface",
+            "adapter_config",
+            "sentence-transformers",
+        ]
+        return any(marker in lowered for marker in markers)

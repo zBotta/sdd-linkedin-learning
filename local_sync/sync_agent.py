@@ -102,11 +102,15 @@ class SyncAgent:
             low_confidence_threshold=config.discovery_low_confidence_threshold,
             recent_window_days=config.discovery_recent_window_days,
             llama_cpp_model_path=str(config.llama_cpp_model_path) if config.llama_cpp_model_path else None,
+            local_embedding_model_path=(
+                str(config.local_embedding_model_path) if config.local_embedding_model_path else None
+            ),
         )
 
     def run_once(self, limit: int = 100) -> dict[str, object]:
-        seen_source_keys = set() if self._config.full_rescrape else self._state_store.seen_source_keys
-        stop_on_first_seen = self._config.linkedin_stop_on_first_seen and not self._config.full_rescrape
+        full_rescrape = self._config.full_rescrape
+        seen_source_keys = set() if full_rescrape else self._state_store.seen_source_keys
+        stop_on_first_seen = self._config.linkedin_stop_on_first_seen and not full_rescrape
 
         try:
             raw_posts = self._scraper.fetch_saved_posts(
@@ -120,6 +124,7 @@ class SyncAgent:
         normalized = [normalize_post(item) for item in raw_posts]
         deduped = deduplicate_posts(normalized)
         new_posts = deduped if self._config.full_rescrape else self._state_store.filter_new(deduped)
+
 
         taxonomy = load_taxonomy(self._config.taxonomy_path)
         validate_taxonomy(taxonomy)
@@ -167,12 +172,14 @@ class SyncAgent:
             payload = self._push_client.build_payload(new_posts)
         push_result = self._push_client.push_payload(payload)
 
-        self._state_store.mark_synced(new_posts, batch_id=batch_id)
+        if push_result.applied:
+            self._state_store.mark_synced(new_posts, batch_id=batch_id)
         append_run_metadata(self._config.classification_runs_path, run_metadata)
 
         return {
             "batch_id": batch_id,
-            "full_rescrape": self._config.full_rescrape,
+            "full_rescrape": full_rescrape,
+            "stop_on_first_seen": stop_on_first_seen,
             "scraped_count": len(raw_posts),
             "normalized_count": len(normalized),
             "deduped_count": len(deduped),

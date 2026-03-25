@@ -5,6 +5,16 @@
 **Status**: Draft  
 **Input**: User description: "The scrapping takes too long. I would like to scrape only new saved posts but the diff does not work. Would it be needed to save all the scrapped data in a local file and make a diff of the already-scrapped posts to avoid taking that long? Don't we have a flag to avoid this kind of behaviour?"
 
+## Clarifications
+
+### Session 2026-03-25
+
+- Q: When embedding model download fails due SSL/certificate trust issues, what should V1 behavior be? -> A: Fail the entire sync run immediately with an explicit error.
+- Q: How should V1 define remediation for enterprise SSL/proxy environments so embedding downloads can succeed securely? -> A: Require documented installation/configuration of trusted corporate CA/proxy settings; do not support insecure TLS bypass.
+- Q: When should V1 enforce the SSL/trust fail-fast check for embedding downloads? -> A: Enforce only when embedding-dependent logic is actually invoked in that run; if not invoked, no failure.
+- Q: For embedding availability in restricted-network environments, what should V1 require as the supported fallback? -> A: Support a pre-downloaded local embedding model path as an official fallback when online download is blocked.
+- Q: If the local fallback embedding path is configured but the file is missing or unreadable, what should V1 do? -> A: Fail the run with an explicit validation error that names the invalid path and remediation action.
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -76,6 +86,14 @@ As the single user, I want an explicit override mode to reprocess the full saved
 - A previously synced post appears with edited text while retaining the same source identity.
 - Local checkpoint file is missing or corrupted before sync start.
 - Delta push fails after extraction/classification; unsent posts must remain eligible for retry.
+<<<<<<< HEAD
+=======
+- Embedding model download fails due SSL/certificate trust issues and blocks discovery/classification dependencies.
+- Corporate proxy/CA is required for outbound model download access.
+- Embedding artifacts are unavailable, but the current run path does not require embedding-dependent logic.
+- Online embedding download is blocked and local fallback model path is missing or invalid.
+- Local fallback embedding path is configured but the file is unreadable due permission or filesystem access errors.
+>>>>>>> 4e6836c (Subject:)
 - User enables full-rescan mode but forgets to disable it for subsequent routine runs.
 - Duplicate saved cards appear in the same extraction window.
 
@@ -98,6 +116,17 @@ As the single user, I want an explicit override mode to reprocess the full saved
 - **FR-008**: System MUST keep existing canonical records unchanged when previously synced posts are temporarily absent from a later scrape.
 - **FR-009**: System MUST allow the user to return from full-rescan mode to incremental mode without manual state reconstruction.
 - **FR-010**: System MUST continue to satisfy existing single-user, local-auth, and idempotent-delta constraints.
+
+- **FR-011**: If required embedding model artifacts cannot be downloaded due SSL/certificate trust failures,
+  system MUST fail the sync run immediately and emit an explicit actionable error.
+- **FR-012**: System MUST document and support secure enterprise trust/proxy configuration for model
+  downloads and MUST NOT provide insecure TLS verification bypass as a supported behavior.
+- **FR-013**: SSL/trust fail-fast enforcement for embedding downloads MUST apply only when
+  embedding-dependent logic is actually invoked in the active run path.
+- **FR-014**: System MUST support an explicit pre-downloaded local embedding model path as an
+  official fallback when online model download is blocked by network trust constraints.
+- **FR-015**: If a configured local fallback embedding path is missing or unreadable, system MUST
+  fail the run with an explicit validation error that includes the invalid path and remediation guidance.
 
 ### Key Entities *(include if feature involves data)*
 
