@@ -1,36 +1,164 @@
 # sdd-linkedin-learning
-A project to learn from LinkedIn saved posts using Spec-Driven Development.
 
-## Project focus
+Single-user personal knowledge library for LinkedIn Saved posts, implemented with a spec-driven workflow and optimized for low maintenance.
 
-Single-user personal knowledge library for LinkedIn Saved posts with an emphasis on:
+## What this project is
 
-- simplicity
-- low maintenance
-- low recurring cost
-- privacy and security
-- mostly automated operation
-- easy extension over time
+This project ingests your LinkedIn Saved posts, classifies them into stable learning topics, discovers emerging topics, and exposes a searchable web UI that you can access from desktop or mobile.
 
-## Architecture boundaries (V1)
+Primary objectives:
 
-- Local machine handles LinkedIn authentication, scraping, normalization,
-	deduplication, classification, and delta generation.
-- Cloud handles authenticated ingest API, canonical database persistence,
-	hosted UI, and backups.
-- Sync occurs via JSON deltas with idempotent upserts; SQLite DB-file copy sync
-	is not allowed.
+- keep LinkedIn authentication and scraping local
+- keep cloud runtime simple and inexpensive
+- provide broad remote access to your library through a hosted UI
+- preserve privacy boundaries and reproducibility
 
-## Classification strategy
+## How it works
 
-Classification is BERTopic-centered with strict separation of concerns:
+The system uses a hybrid architecture:
+
+- Local machine:
+	- reuses your local authenticated browser session
+	- scrapes and normalizes saved posts
+	- deduplicates and classifies content locally
+	- sends authenticated JSON deltas to the cloud
+- Cloud host:
+	- runs an authenticated FastAPI ingest service
+	- stores canonical SQLite data (WAL + FTS5)
+	- runs Streamlit UI for remote browsing/search/review
+	- performs backups and health checks
+
+Important rule:
+
+- no database file copy sync from local to cloud
+- sync is delta-based and idempotent
+
+## Local inference vs cloud access
+
+The design intentionally splits concerns:
+
+- local for inference and privacy:
+	- BERTopic assignment/discovery and optional local LLM label refinement run on your machine
+	- LinkedIn credentials/session data never go to cloud
+- cloud for broad access and operations:
+	- UI is always online for phone/work-browser access
+	- API and DB provide canonical state and recoverability
+
+This keeps sensitive extraction/classification local while still giving convenient remote access to results.
+
+## Architecture summary
+
+- local_sync: scraping, preprocessing, classification, push
+- cloud/api: auth, ingest, idempotent upserts, review APIs
+- cloud/ui: Home, Inbox, Topics, Search, Review, Settings
+- shared: DB layer, schemas, models, taxonomy helpers
+- scripts: init, healthcheck, backup, restore, scheduling
+
+Classification modules remain separated:
 
 - taxonomy_assignment
 - topic_discovery
 - topic_label_refinement
 
-Stable taxonomy labels are the default path; emerging-topic discovery is
-secondary and supports promotion into the stable taxonomy.
+## Feature summary (V1)
+
+- LinkedIn Saved post local sync
+- local BERTopic-based stable taxonomy assignment
+- discovery candidate generation for unmatched/low-confidence content
+- review actions for low-confidence and candidate decisions
+- notes and FTS-backed search over title/content/summary/notes
+- authenticated ingest API and authenticated UI
+- SQLite persistence with backup/restore automation
+
+## Deployment (Podman on local machine)
+
+These commands run API + UI using Podman Compose.
+
+### 1. Prerequisites
+
+- Podman installed and running
+- Podman compose provider available (`podman compose`)
+
+Check:
+
+```powershell
+podman --version
+podman compose version
+```
+
+### 2. Create runtime environment file
+
+From repository root:
+
+```powershell
+Copy-Item cloud/.env.example cloud/.env
+```
+
+Edit `cloud/.env` and set:
+
+- `INGEST_API_TOKEN`
+- `UI_ACCESS_PASSWORD`
+- `DATA_DIR` (for local dev, use a local persistent folder)
+
+Example:
+
+```dotenv
+INGEST_API_TOKEN=change-this-token
+UI_ACCESS_PASSWORD=change-this-password
+CLOUD_DB_PATH=/data/library.db
+API_PORT=8000
+UI_PORT=8501
+DATA_DIR=../.state/podman-data
+```
+
+### 3. Start services
+
+```powershell
+cd cloud
+podman compose --env-file .env up -d --build
+```
+
+### 4. Validate runtime
+
+```powershell
+podman compose ps
+podman compose logs -f api
+podman compose logs -f ui
+```
+
+### 5. Check health endpoints
+
+```powershell
+$token = (Get-Content .env | Select-String '^INGEST_API_TOKEN=').ToString().Split('=')[1]
+Invoke-RestMethod -Headers @{ Authorization = "Bearer $token" } http://localhost:8000/health
+Invoke-WebRequest http://localhost:8501/_stcore/health
+```
+
+### 6. Backup and restore
+
+From repository root, backup:
+
+```powershell
+python scripts/backup_db.py --db-path .state/podman-data/library.db --backup-dir .state/backups --label library --keep 14
+```
+
+Restore drill (stop services first):
+
+```powershell
+cd cloud
+podman compose down
+cd ..
+bash scripts/restore_db.sh .state/backups/library-YYYYMMDDTHHMMSSZ.sqlite .state/podman-data/library.db --force
+cd cloud
+podman compose up -d
+```
+
+## Deployment on EC2
+
+For EC2 bootstrap with Parameter Store integration, see:
+
+- `cloud/bootstrap/ec2_user_data.sh`
+- `docs/deployment.md`
 
 ## Governance
 
@@ -38,12 +166,13 @@ Engineering and product principles are defined in:
 
 - `.specify/memory/constitution.md`
 
-All specs, plans, tasks, and implementation changes must comply with the
-constitution.
+All specs, plans, tasks, and implementation changes must comply with the constitution.
 
 ## Spec Kit with Codex
-After installing Spec Kit, run the following to start a Codex-compatible spec-driven list of skills.
-```
+
+After installing Spec Kit, initialize Codex-compatible skills:
+
+```bash
 specify init . --ai codex --ai-skills
 ```
 
