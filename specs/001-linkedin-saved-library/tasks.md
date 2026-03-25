@@ -87,17 +87,17 @@
 
 **Independent Test**: Authenticate from desktop/mobile browser, browse topics, run FTS search with filters, perform review actions, and create/edit notes.
 
-- [ ] T041 [US3] Implement Streamlit app shell and page routing entrypoint in cloud/ui/app.py
-- [ ] T042 [P] [US3] Implement single-user auth/session gate for hosted UI in cloud/ui/components/auth_gate.py
-- [ ] T043 [US3] Implement Home and Inbox pages with sync metrics and new-post queue in cloud/ui/pages/home.py
-- [ ] T044 [US3] Implement Topics page with stable taxonomy and candidate summaries in cloud/ui/pages/topics.py
-- [ ] T045 [US3] Implement Search page using SQLite FTS5 queries and filters (topic/date/status/source/confidence) in cloud/ui/pages/search.py
-- [ ] T046 [US2] Implement Review page actions (approve/reassign/adjust/promote/merge/reject/manual reprocess) in cloud/ui/pages/review.py
-- [ ] T047 [US3] Implement Settings page for taxonomy version, thresholds, and diagnostics summary in cloud/ui/pages/settings.py
-- [ ] T048 [US3] Implement notes editing panel and persistence wiring in cloud/ui/components/notes_panel.py
-- [ ] T049 [US3] Add integration smoke test for core UI navigation and authenticated access in tests/integration/test_streamlit_ui_smoke.py
-- [ ] T050 [US3] Add UI observability cards for last sync, backlog size, and candidate count in cloud/ui/components/status_cards.py
-- [ ] T051 [US3] Add user documentation for browse/search/review/notes workflows in docs/user-guide.md
+- [X] T041 [US3] Implement Streamlit app shell and page routing entrypoint in cloud/ui/app.py
+- [X] T042 [P] [US3] Implement single-user auth/session gate for hosted UI in cloud/ui/components/auth_gate.py
+- [X] T043 [US3] Implement Home and Inbox pages with sync metrics and new-post queue in cloud/ui/pages/home.py
+- [X] T044 [US3] Implement Topics page with stable taxonomy and candidate summaries in cloud/ui/pages/topics.py
+- [X] T045 [US3] Implement Search page using SQLite FTS5 queries and filters (topic/date/status/source/confidence) in cloud/ui/pages/search.py
+- [X] T046 [US2] Implement Review page actions (approve/reassign/adjust/promote/merge/reject/manual reprocess) in cloud/ui/pages/review.py
+- [X] T047 [US3] Implement Settings page for taxonomy version, thresholds, and diagnostics summary in cloud/ui/pages/settings.py
+- [X] T048 [US3] Implement notes editing panel and persistence wiring in cloud/ui/components/notes_panel.py
+- [X] T049 [US3] Add integration smoke test for core UI navigation and authenticated access in tests/integration/test_streamlit_ui_smoke.py
+- [X] T050 [US3] Add UI observability cards for last sync, backlog size, and candidate count in cloud/ui/components/status_cards.py
+- [X] T051 [US3] Add user documentation for browse/search/review/notes workflows in docs/user-guide.md
 
 ---
 
