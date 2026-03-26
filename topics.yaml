@@ -12,9 +12,12 @@ topics:
   - slug: mcp
     name: MCP
     keywords: ["model context protocol", "mcp", "tooling", "server"]
+  - slug: llm-ops_mlops
+    name: LLM Ops / MLOps
+    keywords: ["mlops", "mlflow", "dvc" , "llm ops", "model monitoring", "data drift", "concept drift", "model performance", "opik", "langfuse", "truss", "model observability", "telemetry"]
   - slug: ai-agents
     name: AI-Agents
-    keywords: ["agent", "autonomous", "workflow", "planner"]
+    keywords: ["agent", "autonomous", "workflow", "planner", "smolagent", "agentic", "agent framework", "langchain", "agent tools", "agent memory"]
   - slug: openclaw
     name: OpenClaw
     keywords: ["claw", "clawdbot", "Molt", "Moltbot", "OpenClaw", "Peter Steinberg", "Steinberg", "ZeroClaw", "MiniClaw"]
