@@ -1,4 +1,4 @@
-# sdd-linkedin-learning
+﻿# sdd-linkedin-learning
 
 Single-user personal knowledge library for LinkedIn Saved posts, implemented with a spec-driven workflow and optimized for low maintenance.
 
@@ -157,24 +157,23 @@ This section walks through a first end-to-end run:
 
 ### 1. Install prerequisites
 
-- Python 3.11+
+- Python 3.12
 - Podman (for API + UI stack)
 - local browser access for LinkedIn login
 
 From repository root:
 
 ```powershell
-python -m venv .venv
+uv venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-pip install -e .
-python -m playwright install chromium
+uv sync
+uv run python -m playwright install chromium
 ```
 
 Optional (for GGUF-based local refinement):
 
 ```powershell
-pip install llama-cpp-python
+uv run python -m pip install llama-cpp-python
 ```
 
 ### 2. Configure environment
@@ -201,6 +200,12 @@ LLAMA_CPP_MODEL_PATH=C:/models/your-model.gguf
 
 # Optional local embedding fallback for restricted networks
 LOCAL_EMBEDDING_MODEL_PATH=C:/models/all-MiniLM-L6-v2
+```
+
+Example from your setup:
+
+```dotenv
+LOCAL_EMBEDDING_MODEL_PATH=C:/Users/mbottari/.models/all-MiniLM-L6-v2_model.safetensors
 ```
 
 If your model is in a custom location, put that absolute path in the same env file passed to `from_env(...)`.
@@ -244,7 +249,7 @@ Invoke-RestMethod -Headers @{ Authorization = "Bearer $token" } http://localhost
 Run one sync cycle from repository root:
 
 ```powershell
-python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).run_once(limit=100); print(json.dumps(result, indent=2))"
+uv run python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).run_once(limit=100); print(json.dumps(result, indent=2))"
 ```
 
 Note: run this from repository root (`sdd-linkedin-learning`) so local source modules are imported.
@@ -273,7 +278,7 @@ Open UI:
 ### 6. Optional manual backlog reprocess
 
 ```powershell
-python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).manual_reprocess_backlog(limit=500); print(json.dumps(result, indent=2))"
+uv run python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).manual_reprocess_backlog(limit=500); print(json.dumps(result, indent=2))"
 ```
 
 ### 7. Troubleshooting first run
@@ -287,7 +292,7 @@ python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_a
 - If embedding model download fails with TLS/certificate errors (`CERTIFICATE_VERIFY_FAILED` from huggingface.co), use one of these local sync options:
 	- set `LOCAL_SYNC_DISABLE_BERTOPIC=true` to skip BERTopic embedding downloads and use deterministic keyword fallback only
 	- or set `LOCAL_SYNC_EMBEDDINGS_LOCAL_ONLY=true` to use only local Hugging Face cache for `sentence-transformers/all-MiniLM-L6-v2` (no network calls)
-	- if you use local-only mode, pre-warm cache once on a trusted network: `python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"`
+	- if you use local-only mode, pre-warm cache once on a trusted network: `uv run python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"`
 - If needed, set an explicit browser executable path before running sync:
 
 ```powershell
@@ -298,6 +303,7 @@ $env:PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH = "C:\Program Files\Google\Chrome\Appli
 
 - If BERTopic embedding download fails with SSL/certificate trust errors, configure trusted corporate CA/proxy settings or set a valid `LOCAL_EMBEDDING_MODEL_PATH`.
 - If `LOCAL_EMBEDDING_MODEL_PATH` is set but invalid/unreadable, sync fails with explicit path validation guidance.
+- If using a local `.safetensors` artifact (for example `C:/Users/my_user/.models/all-MiniLM-L6-v2_model.safetensors`), set `LOCAL_EMBEDDING_MODEL_PATH` to that absolute path in the env file used by the run.
 
 ## Deployment (Podman on local machine)
 
@@ -328,6 +334,7 @@ Edit `cloud/.env` and set:
 - `INGEST_API_TOKEN`
 - `UI_ACCESS_PASSWORD`
 - `DATA_DIR` (for local dev, use a local persistent folder)
+- `CLOUD_DB_PATH=/data/library.db` (required so DB writes go to mounted `/data` volume)
 
 Example:
 
@@ -371,7 +378,7 @@ Invoke-WebRequest http://localhost:8501/_stcore/health
 From repository root, backup:
 
 ```powershell
-python scripts/backup_db.py --db-path .state/podman-data/library.db --backup-dir .state/backups --label library --keep 14
+uv run python scripts/backup_db.py --db-path .state/podman-data/library.db --backup-dir .state/backups --label library --keep 14
 ```
 
 Restore drill (stop services first):
@@ -392,6 +399,31 @@ For EC2 bootstrap with Parameter Store integration, see:
 - `cloud/bootstrap/ec2_user_data.sh`
 - `docs/deployment.md`
 
+For this repository's deployment flows, see `DEPLOYMENT.md`:
+
+- Phase 6 validation/testing deployment: `scripts/deploy_phase6.sh` and `scripts/deploy_phase6.ps1`
+- Real EC2 API/UI deployment runtime: `scripts/deploy_cloud_ec2.sh` (run this inside the EC2 instance)
+- Faster Phase 6 US2 test run example: `./scripts/deploy_phase6.sh --include-us2 --test-e2e-sample-limit 10 --test-force-full-rescrape`
+
+Quick EC2 runtime command:
+
+```bash
+chmod +x scripts/deploy_cloud_ec2.sh
+./scripts/deploy_cloud_ec2.sh up
+```
+
+## Inference-Only Debug (No Deploy/Push/Scrape)
+
+To debug taxonomy assignment + discovery embedding behavior without running the full Phase 6 pipeline, use:
+
+```powershell
+uv run --no-sync python scripts/run_inference_debug.py --limit 10 --print-candidates
+```
+
+Notes:
+- This reads posts from the latest `exports/batch_*.json` file (or pass `--input-export <path>`).
+- It does not deploy containers, scrape LinkedIn, or push to API.
+
 ## Governance
 
 Engineering and product principles are defined in:
@@ -407,4 +439,5 @@ After installing Spec Kit, initialize Codex-compatible skills:
 ```bash
 specify init . --ai codex --ai-skills
 ```
+
 

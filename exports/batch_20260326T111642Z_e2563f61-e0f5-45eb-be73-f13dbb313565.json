@@ -1,0 +1,58 @@
+{
+  "batchId": "e2563f61-e0f5-45eb-be73-f13dbb313565",
+  "exportedAt": "2026-03-26T11:16:42.501347+00:00",
+  "posts": [],
+  "classifications": [],
+  "classificationRun": {
+    "run_id": "ac412fbe-a121-4bd2-98b9-619e6d7041a0",
+    "started_at": "2026-03-26T11:14:17.531077Z",
+    "finished_at": "2026-03-26T11:16:42.497687Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_fallback",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "zeroshot_min_similarity": 0.35,
+    "secondary_min_similarity": 0.5,
+    "processed_count": 0,
+    "matched_count": 0,
+    "diagnostics": {
+      "unmatched_count": 0,
+      "strategy": "deterministic keyword overlap fallback"
+    }
+  },
+  "topicCandidates": [],
+  "discoveryRun": {
+    "run_id": "7dfbeeb5-17fb-40c0-80cd-78d96f9628f9",
+    "started_at": "2026-03-26T11:16:42.497687Z",
+    "finished_at": "2026-03-26T11:16:42.498688Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_grouping",
+    "input_count": 0,
+    "candidate_count": 0,
+    "diagnostics": {
+      "scope_counts": {
+        "unmatched": 0,
+        "low_confidence": 0,
+        "recent": 0
+      },
+      "backlog_age_days": 0
+    }
+  },
+  "discoveryPostTopics": [],
+  "discoveryTelemetry": {
+    "candidate_count": 0,
+    "confidence_bands": {
+      "lt_0_4": 0,
+      "0_4_to_0_7": 0,
+      "gte_0_7": 0
+    },
+    "average_evidence_size": 0.0,
+    "backlog_age_days": 0,
+    "scope_counts": {
+      "unmatched": 0,
+      "low_confidence": 0,
+      "recent": 0
+    }
+  }
+}

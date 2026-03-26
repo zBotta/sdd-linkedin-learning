@@ -40,12 +40,14 @@ class PushClientProtocol(Protocol):
     def build_payload(
         self,
         posts: list[NormalizedPost],
+        topics: list[dict] | None = None,
         post_topics: list[dict] | None = None,
         topic_candidates: list[dict] | None = None,
         metadata: dict | None = None,
     ) -> dict: ...
 
     def push_payload(self, payload: dict) -> PushResult: ...
+    def create_topic_run(self, payload: dict) -> PushResult: ...
 
 
 class TaxonomyAssignerProtocol(Protocol):
@@ -120,6 +122,8 @@ class SyncAgent:
             )
         except TypeError:
             raw_posts = self._scraper.fetch_saved_posts(limit=limit)
+        if limit > 0 and len(raw_posts) > limit:
+            raw_posts = raw_posts[:limit]
 
         normalized = [normalize_post(item) for item in raw_posts]
         deduped = deduplicate_posts(normalized)
@@ -142,6 +146,8 @@ class SyncAgent:
             self._config.discovery_candidates_path,
         )
 
+        stable_topics_payload = self._build_stable_topics_payload(taxonomy)
+        classification_post_topics = self._build_classification_post_topics(classifications)
         discovery_post_topics = self._build_discovery_post_topics(candidates)
         discovery_telemetry = self._build_discovery_telemetry(candidates, discovery_run)
 
@@ -160,7 +166,8 @@ class SyncAgent:
         try:
             payload = self._push_client.build_payload(
                 new_posts,
-                post_topics=discovery_post_topics,
+                topics=stable_topics_payload,
+                post_topics=[*classification_post_topics, *discovery_post_topics],
                 topic_candidates=[item.model_dump(mode="json") for item in candidates],
                 metadata={
                     "classificationRunId": run_metadata.run_id,
@@ -171,9 +178,16 @@ class SyncAgent:
         except TypeError:
             payload = self._push_client.build_payload(new_posts)
         push_result = self._push_client.push_payload(payload)
+        topic_run_results: list[dict[str, object]] = []
 
         if push_result.applied:
             self._state_store.mark_synced(new_posts, batch_id=batch_id)
+            topic_run_results = self._register_topic_runs(
+                run_metadata=run_metadata,
+                discovery_run=discovery_run,
+                input_count=len(new_posts),
+                discovery_candidate_count=len(candidates),
+            )
         append_run_metadata(self._config.classification_runs_path, run_metadata)
 
         return {
@@ -188,6 +202,9 @@ class SyncAgent:
             "classification_matched_count": run_metadata.matched_count,
             "discovery_run_id": discovery_run.run_id,
             "discovery_candidate_count": len(candidates),
+            "classification_post_topics_count": len(classification_post_topics),
+            "topic_runs_registered_count": sum(1 for row in topic_run_results if row.get("applied")),
+            "topic_runs_registration": topic_run_results,
             "export_path": str(exported_path) if exported_path else None,
             "push_result": push_result.model_dump(),
         }
@@ -260,16 +277,59 @@ class SyncAgent:
         post_topics: list[dict[str, object]] = []
         for candidate in candidates:
             for source_key in candidate.evidence_source_keys:
+                post_source, post_source_id = SyncAgent._split_source_key(source_key)
                 post_topics.append(
                     {
-                        "sourceKey": source_key,
-                        "topicLabel": candidate.label,
+                        "postSource": post_source,
+                        "postSourceId": post_source_id,
+                        "topicSlug": candidate.label.lower().replace(" ", "-"),
                         "role": "discovery_candidate",
                         "confidence": candidate.confidence,
-                        "candidateId": candidate.candidate_id,
+                        "assignmentSource": "topic_discovery",
+                        "reviewState": "pending",
                     }
                 )
         return post_topics
+
+    @staticmethod
+    def _build_stable_topics_payload(taxonomy: TaxonomyConfig) -> list[dict[str, object]]:
+        return [
+            {
+                "slug": topic.slug,
+                "name": topic.name,
+                "description": getattr(topic, "description", None),
+                "taxonomyVersion": taxonomy.taxonomy_version,
+                "sourceType": "taxonomy",
+            }
+            for topic in taxonomy.topics
+        ]
+
+    @staticmethod
+    def _build_classification_post_topics(
+        classifications: list[PostClassification],
+    ) -> list[dict[str, object]]:
+        rows: list[dict[str, object]] = []
+        for item in classifications:
+            post_source, post_source_id = SyncAgent._split_source_key(item.source_key)
+            for match in item.matches:
+                rows.append(
+                    {
+                        "postSource": post_source,
+                        "postSourceId": post_source_id,
+                        "topicSlug": match.topic_slug,
+                        "role": match.role,
+                        "confidence": match.confidence,
+                        "assignmentSource": "taxonomy_assignment",
+                        "reviewState": "pending",
+                    }
+                )
+        return rows
+
+    @staticmethod
+    def _split_source_key(source_key: str) -> tuple[str, str]:
+        if ":" in source_key:
+            return tuple(source_key.split(":", 1))  # type: ignore[return-value]
+        return "linkedin_saved", source_key
 
     @staticmethod
     def _build_discovery_telemetry(
@@ -286,3 +346,63 @@ class SyncAgent:
             "backlog_age_days": backlog_age_days,
             "scope_counts": run.diagnostics.get("scope_counts", {}),
         }
+
+    def _register_topic_runs(
+        self,
+        *,
+        run_metadata: ClassificationRunMetadata,
+        discovery_run: DiscoveryRunMetadata,
+        input_count: int,
+        discovery_candidate_count: int,
+    ) -> list[dict[str, object]]:
+        create_topic_run = getattr(self._push_client, "create_topic_run", None)
+        if not callable(create_topic_run):
+            return []
+
+        classification_payload = {
+            "runType": "taxonomy_assignment",
+            "taxonomyVersion": run_metadata.taxonomy_version,
+            "embeddingModel": run_metadata.embedding_model,
+            "representationConfig": {"backend": run_metadata.backend},
+            "inputCount": run_metadata.processed_count or input_count,
+            "outputCount": run_metadata.matched_count,
+            "errorCount": 0,
+            "startedAt": run_metadata.started_at.isoformat(),
+            "finishedAt": run_metadata.finished_at.isoformat() if run_metadata.finished_at else None,
+            "status": run_metadata.status,
+            "diagnosticsJson": run_metadata.diagnostics,
+        }
+        discovery_payload = {
+            "runType": "topic_discovery",
+            "taxonomyVersion": discovery_run.taxonomy_version,
+            "embeddingModel": (
+                str(self._config.local_embedding_model_path)
+                if self._config.local_embedding_model_path
+                else run_metadata.embedding_model
+            ),
+            "representationConfig": {"backend": discovery_run.backend},
+            "inputCount": discovery_run.input_count or input_count,
+            "outputCount": discovery_run.candidate_count or discovery_candidate_count,
+            "errorCount": 0,
+            "startedAt": discovery_run.started_at.isoformat(),
+            "finishedAt": discovery_run.finished_at.isoformat() if discovery_run.finished_at else None,
+            "status": discovery_run.status,
+            "diagnosticsJson": discovery_run.diagnostics,
+        }
+
+        results: list[dict[str, object]] = []
+        for payload in (classification_payload, discovery_payload):
+            try:
+                run_result = create_topic_run(payload)
+                results.append({"run_type": payload["runType"], **run_result.model_dump()})
+            except Exception as exc:  # pragma: no cover - defensive guard for integration-only path
+                results.append(
+                    {
+                        "run_type": payload["runType"],
+                        "applied": False,
+                        "dry_run": False,
+                        "status_code": None,
+                        "message": f"topic run registration error: {exc}",
+                    }
+                )
+        return results

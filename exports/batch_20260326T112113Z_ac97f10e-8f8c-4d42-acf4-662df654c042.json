@@ -1,0 +1,865 @@
+{
+  "batchId": "ac97f10e-8f8c-4d42-acf4-662df654c042",
+  "exportedAt": "2026-03-26T11:21:13.526359+00:00",
+  "posts": [
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7442495601893826561",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7442495601893826561?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442495601893826561%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.902943Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 1d \u2022 1d Visible to everyone Stop wrestling with fine-tuning scripts cobbled together from 5 different repos. Here's something better \u2b07\ufe0f We open-sourced leap-finetune, your go-to tool to fine-tune LFM models by Liquid AI One library. SFT. DPO. VLMs. MoE. 100% Open Source. \ud835\uddd5\ud835\ude02\ud835\ude01 \ud835\ude04\ud835\uddf5\ud835\ude06 \ud835\ude01\ud835\uddf5\ud835\uddf6\ud835\ude00 \ud835\ude01\ud835\uddfc\ud835\uddfc\ud835\uddf9? Fine-tuning small models is the most underrated skill in AI right now. A 1.2B model fine-tuned on your data beats GPT-4 on narrow tasks. Costs pennies. Runs anywhere. But the tooling has been a mess. You grab TRL from here, Accelerate from there, hack together some Ray scripts, pray your YAML configs don't conflict. leap-finetune fixes this. \ud835\uddea\ud835\uddf5\ud835\uddee\ud835\ude01'\ud835\ude00 \ud835\uddf6\ud835\uddfb\ud835\ude00\ud835\uddf6\ud835\uddf1\ud835\uddf2? \u2192 Supervised Fine-Tuning (SFT) \u2192 Direct Preference Optimization (DPO) \u2192 Vision-Language Model fine-tuning \u2192 Mixture of Experts support \u2192 LoRA out of the box \u2192 SLURM integration for cluster jobs Works on a single GPU. Scales to 8x H100s without changing your code. It even runs on serverless GPUs on Modal \ud835\udddb\ud835\uddfc\ud835\ude04 \ud835\ude01\ud835\uddfc \ud835\uddff\ud835\ude02\ud835\uddfb \ud835\uddf6\ud835\ude01? Git clone the repo, edit your configuration, and then uv sync uv run leap-finetune config.yaml That's it. Built on Ray Train + Accelerate + TRL. Ready for production. Enjoy \u2193 https://lnkd.in/dEzmS9xD PS: Thoughtful PR contributions are really welcome",
+      "content_hash": "fd8d3921c6590836c96dbb78919df9d616c77cd6bbf3a9d76476a4e35221f82c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7442495601893826561?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442495601893826561%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7441777851781095424",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441777851781095424?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441777851781095424%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.903954Z",
+      "title": "Building a local Home Assistant with LFM models paulabartabajo.substack.com",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 3d \u2022 3d Visible to everyone Advice for AI engineers \ud83d\udca1 Stop reading about the \u201cwonders\u201d of Small Language Models. Instead, build something useful yourself. There\u2019s a step by step example to get started \u2b07\ufe0f https://lnkd.in/dRWcjrKr? Building a local Home Assistant with LFM models paulabartabajo.substack.com",
+      "content_hash": "d92cb6b274d9a2157b4457488bd042d533f3c2de8502acdedc931712acba64ef",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7441777851781095424?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441777851781095424%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7442177776113221632",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7442177776113221632?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442177776113221632%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.903954Z",
+      "title": "Lan Chu View Lan Chu\u2019s profile \u2022 2nd AI Tech Lead | Senior Data Scientist | Work with LLMs before they were cool 1d \u2022 1d",
+      "content": "Lan Chu View Lan Chu\u2019s profile \u2022 2nd AI Tech Lead | Senior Data Scientist | Work with LLMs before they were cool 1d \u2022 1d Visible to everyone I tried to run Claude Code with an open source model Qwen3.5-35B-A3B. Zero API costs. Local inference. Same Claude Code workflow. When I run out of tokens with Claude Code, I sometimes feel like a deer in headlights. Especially when debugging, I don\u2019t want to manually shift through my code base, because that is what AI is for. Now that local models are getting better, I gave it a try on a Macbook M1 32GB to see if it\u2019s a nice alternative. The setup works with any open model e.g Qwen3.5, DeepSeek, Gemma. My setup consists of using llama.cpp to run the model as a service and connecting it to Claude Code. Setting it up takes about 15-20 minutes, of which the majority of the time is waiting for the download of a 30B model to complete. Qwen3.5 is currently the strongest agentic and coding model trained for long-horizon reasoning, complex tool use, and recovery from execution failures. My first impressions: 1. \ud835\udc08\ud835\udc2d \ud835\udc22\ud835\udc2c \ud835\udc2c\ud835\udc25\ud835\udc28\ud835\udc30! An M1 chip is clearly not as fast as a top tier NVIDIA video card. With a local model, you start to notice how much of the experience depends on speed, not just quality. Took almost 5-10 minutes of thinking to identify a bug. This is not very practical. 2. \ud835\udc02\ud835\udc28\ud835\udc27\ud835\udc2d\ud835\udc1e\ud835\udc31\ud835\udc2d \ud835\udc22\ud835\udc2c \ud835\udc1a \ud835\udc2b\ud835\udc1e\ud835\udc1a\ud835\udc25 \ud835\udc1c\ud835\udc28\ud835\udc27\ud835\udc2c\ud835\udc2d\ud835\udc2b\ud835\udc1a\ud835\udc22\ud835\udc27\ud835\udc2d \ud835\udc25\ud835\udc28\ud835\udc1c\ud835\udc1a\ud835\udc25\ud835\udc25\ud835\udc32. The context window is the bottleneck. The model natively supports 262K tokens, but locally you are constrained by your available RAM. Tokens fill up fast when Claude Code is reading multiple files and keeping tool call history. 3. \ud835\udc08\ud835\udc2d \ud835\udc22\ud835\udc2c \ud835\udc2a\ud835\udc2e\ud835\udc22\ud835\udc2d\ud835\udc1e \ud835\udc2c\ud835\udc26\ud835\udc1a\ud835\udc2b\ud835\udc2d (as first impressions): although the ttft is a bit long, it works rather well otherwise. I threw a few bugs at Qwen3.5-35B and it diagnosed them correctly and implemented working solutions. For refactoring or complicated features, I wouldn\u2019t trust it yet, need to test more. Overall I definitely see the value, and while it is definitely not a replacement for something like Opus 4.5, it is exciting to see small language models getting better and more accessible. I wonder how the large open weight models compare to Opus 4.5 though. Is it perhaps time to buy a mac studio and try out the 397B version of Qwen3.5. What do you think? Want to set it up yourself? Link to step-by-step guide in the comment. \u2b07\ufe0f",
+      "content_hash": "190a52d87cf995b27a815c640ca120e4572fdcc8633010de05c3965ebb91ac60",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7442177776113221632?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442177776113221632%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7442133113826205696",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7442133113826205696?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442133113826205696%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.904945Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 2d \u2022 2d Visible to everyone \"LLMs just memorize. They're not really intelligent.\" My answer: I don't care. Consider drug discovery. Drug discovery is the process of finding molecules that treat disease. Every medicine you've ever taken started here. Finding molecules that treat disease. But here's the problem: It takes 10 to 15 years. Costs billions. Over 90% of candidates fail in clinical trials. Why? Because most of the work is trial and error. Synthesize, test, fail, repeat. Each iteration costs months and millions. But the thing is, the data to make better predictions exists. But it's scattered and high-dimensional. No human can hold the full picture. A model trained on this data can. It compresses that space into weights. \ud835\uddd9\ud835\uddfc\ud835\uddff \ud835\uddf2\ud835\ude05\ud835\uddee\ud835\uddfa\ud835\uddfd\ud835\uddf9\ud835\uddf2 A new paper from Insilico Medicine and Liquid AI trained a 2.6B parameter model on 120 billion tokens of pharmaceutical data. It matches or outperforms models 10x its size. It beat TxGemma-27B on 13 of 22 ADMET tasks. It outperformed GPT-4.5 and Claude Opus on affinity benchmarks. \ud835\uddea\ud835\uddf5\ud835\ude06 \ud835\uddf6\ud835\ude00 \ud835\ude01\ud835\uddf5\ud835\uddf6\ud835\ude00 \ud835\uddff\ud835\uddf2\ud835\uddf9\ud835\uddf2\ud835\ude03\ud835\uddee\ud835\uddfb\ud835\ude01? 2.6B runs on a single GPU. On-premise. Infrastructure a startup can afford. We're not waiting for AGI. We're waiting for pattern matchers good enough, trained on the right data, small enough to deploy anywhere. That future is here. Link to the paper in the comments \ud83d\udc47",
+      "content_hash": "f72ce2964d1fdfafd96db7537e8bbeeabef2664d19d8d8855783f4fb0a9fe06c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7442133113826205696?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442133113826205696%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7441053556767465472",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441053556767465472?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441053556767465472%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.904945Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 5d \u2022 5d Visible to everyone Tool Calling with Small Language Models. Step by step \u2193 In this blog post you will find a hands-on example showing how to do tool calling with a small language model. https://lnkd.in/d6vZpPHK Next week I will release a guide to generate synthetic data and fine-tune the model. Let me know what you think in the comments below. And if you have questions, please ask",
+      "content_hash": "0280fafb77adc84e839f76233bec49038ba0b9366a01c2f476916f57cfd6ad92",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7441053556767465472?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441053556767465472%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7441448763333943296",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441448763333943296?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441448763333943296%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.904945Z",
+      "title": "Avi Chawla View Avi Chawla\u2019s profile \u2022 3rd+ Co-founder DailyDoseofDS | IIT Varanasi | ex-AI Engineer MastercardAI | News",
+      "content": "Avi Chawla View Avi Chawla\u2019s profile \u2022 3rd+ Co-founder DailyDoseofDS | IIT Varanasi | ex-AI Engineer MastercardAI | Newsletter (150k+) 3d \u2022 3d Visible to everyone Now you can train LLMs in VS Code for free! . . This guide by Unsloth shows you how to connect any fine-tuning notebook in VS Code to a Colab runtime. Train locally or on a free Google Colab GPU. Link to the guide and GitHub repo in the first comment. _____ Share this with your network if you found this insightful \u267b\ufe0f Find me \u2192 Avi Chawla. Every day, I share tutorials and insights on DS, ML, LLMs, and RAGs.",
+      "content_hash": "53b1199fba1de89729515eef0aaf9468cf1451181ccfaf210c9fbf3688018cd2",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7441448763333943296?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441448763333943296%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7441507072808116224",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441507072808116224?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441507072808116224%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.905943Z",
+      "title": "GitHub - awf-project/cli: A Go CLI tool for orchestrating AI agents through YAML workflows github.com",
+      "content": "Alexandre BALMES View Alexandre BALMES\u2019 profile \u2022 3rd+ CTO & Staff Architect | Ing\u00e9nierie de syst\u00e8mes robustes pour l\u2019IA | Expert DDD & Architecture Logicielle 3d \u2022 3d Visible to everyone En tant que dev ou responsable technique, on fait tous face au m\u00eame constat avec les LLM : c'est un gain de temps ph\u00e9nom\u00e9nal mais cela manque souvent de d\u00e9terminisme et de contr\u00f4le. C'est pour r\u00e9pondre \u00e0 ce besoin de ma\u00eetrise que j'ai d\u00e9velopp\u00e9 AWF (AI Workflow Framework). Apr\u00e8s l'avoir \u00e9prouv\u00e9 sur mes propres projets, je rends l'outil accessible \u00e0 tous. Le concept n'est pas de proposer un \u00e9ni\u00e8me \"claw\", mais un binaire en Go permettant d'orchestrer vos agents IA (Claude, Gemini, Codex) via des workflows YAML structur\u00e9s. Pourquoi cette approche : - D\u00e9terminisme : on sort du \"prompt and pray\". On d\u00e9finit des \u00e9tapes, des conditions, des boucles et une gestion d'erreurs. Comme avec Ansible, \u00e7a marche ou \u00e7a casse. - Agnosticisme : ne soyez pas prisonnier d'un seul mod\u00e8le. Vous pouvez switcher entre Claude Code, Gemini ou OpenAI au sein d'un m\u00eame workflow. - Approche professionnelle : gestion du parall\u00e9lisme, audit trail, support XDG. C'est un outil con\u00e7u par un d\u00e9veloppeur pour ceux qui ma\u00eetrisent leur ligne de commande et AWF s'auto-d\u00e9veloppe d\u00e9sormais via ses propres workflows. Le repo est ouvert et les retours sont les bienvenus pour ceux qui souhaitent industrialiser leurs interactions avec l'IA. https://lnkd.in/eQr6xgHZ GitHub - awf-project/cli: A Go CLI tool for orchestrating AI agents through YAML workflows github.com",
+      "content_hash": "bc6a7c66feb42f074b18d5b46389e2a7f1c41219983cad8c2154d8671ef06954",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7441507072808116224?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441507072808116224%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7439936239430156289",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7439936239430156289?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7439936239430156289%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.905943Z",
+      "title": "Benjamin Tardy View Benjamin Tardy\u2019s profile \u2022 2nd AI & ML Engineer 1w \u2022 1w Visible to everyone L'\u00e9volution des architec",
+      "content": "Benjamin Tardy View Benjamin Tardy\u2019s profile \u2022 2nd AI & ML Engineer 1w \u2022 1w Visible to everyone L'\u00e9volution des architectures LLM en une seule page ! Sebastian Raschka maintient une \"LLM Architecture Gallery\" qui compile les fiches techniques d'architecture de 42 mod\u00e8les, de GPT-2 aux derni\u00e8res sorties de d\u00e9but 2026. En parcourant l'ensemble, quelques tendances sautent aux yeux : \u2192 Le Mixture-of-Experts est devenu la norme pour les gros mod\u00e8les. \u2192 DeepSeek V3 est devenu le blueprint de l'industrie. Son combo MLA + MoE sparse + dense prefix a \u00e9t\u00e9 repris presque tel quel par Mistral Large 3 (qualifi\u00e9 explicitement de \"near-clone\" dans la galerie), Kimi K2. GLM-4.5 s'en inspire \u00e9galement. \u2192 L'attention hybride \u00e9merge comme la prochaine fronti\u00e8re. Les mod\u00e8les les plus r\u00e9cents commencent \u00e0 remplacer une partie des couches d'attention classique par des m\u00e9canismes lin\u00e9aires. L'objectif : garder la qualit\u00e9 du Transformer tout en r\u00e9duisant le co\u00fbt sur les longs contextes. \u2192 Les fen\u00eatres de contexte ont explos\u00e9. On est pass\u00e9 de 1 024 tokens (GPT-2) \u00e0 128K en standard, avec des mod\u00e8les \u00e0 1M tokens. La galerie est m\u00eame disponible en poster haute r\u00e9solution, la version 2026 du poster des 151 Pok\u00e9mon de Kanto qu'on avait au mur de notre chambre sauf qu'ici c'est 42 architectures LLM avec leurs fiches techniques. _______ \ud83d\udcec Veille Data/IA toutes les semaines \u2013 15 min chrono : humanframework.substack(.)com Je publie 3x par semaine sur l'IA, le machine learning et la data en g\u00e9n\u00e9ral.",
+      "content_hash": "feed28bdc4d502e6e3050bc81ed0401a38d81da49747d8928389a7ecfd532a10",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7439936239430156289?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7439936239430156289%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7439002469608812544",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7439002469608812544?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7439002469608812544%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.905943Z",
+      "title": "GitHub - obra/superpowers: An agentic skills framework & software development methodology that works. github.com",
+      "content": "Sacha N. Sacha N. View Sacha N.\u2019s profile \u2022 3rd+ RSI & Consultant SSI 1w \u2022 1w Visible to everyone IA \ud83e\udd16 L'industrie du logiciel tel qu'on la conna\u00eet, va prendre une claque.. Pas dans 10 ans. Mais demain! Un repo GitHub obra/superpowers d\u00e9passe les 85 000 \u00e9toiles, car ce qui vient de tomber va bousculer bon nombre d\u2019\u00e9diteurs logiciels! Ce n'est pas un \u00e9ni\u00e8me plugin Cursor ou une extension Copilot. C'est une m\u00e9thodologie compl\u00e8te dot\u00e9e d\u2019un framework et de \"skills\" qui force les agents IA \u00e0 travailler exactement comme une \u00e9quipe d'ing\u00e9nieurs disciplin\u00e9s : 1. Brainstorm + validation design 2. Git worktree isol\u00e9 + setup propre 3. D\u00e9coupage ultra-pr\u00e9cis en t\u00e2ches de 2\u20135 min avec spec/code/v\u00e9rif 4. Ex\u00e9cution par sub-agents + double review (spec qualit\u00e9) 5. TDD strict : RED \u2192 GREEN \u2192 REFACTOR \u2013 code jet\u00e9 si test non valide 6. Review bloquante sur les probl\u00e8mes critiques 7. Merge/PR auto ou discard + nettoyage R\u00e9sultat ? L'agent peut tourner de fa\u00e7on autonome 2 heures sans d\u00e9railler, produire du code testable, review\u00e9, merg\u00e9 et sans que l'humain n'\u00e9crive une seule ligne. Ce n'est plus de l'assistance. C'est une usine logicielle autonome qui s'auto-discipline. Et \u00e7a change tout\u2026.\ud83e\uddd0\ud83e\udd14\ud83e\udee3 GitHub - obra/superpowers: An agentic skills framework & software development methodology that works. github.com",
+      "content_hash": "7366c24ee4622a859453b1f6fce9187b96fea5860b0377c28a239c74ac911ef9",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7439002469608812544?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7439002469608812544%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7438947312392941568",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7438947312392941568?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438947312392941568%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.905943Z",
+      "title": "Avi Chawla View Avi Chawla\u2019s profile \u2022 3rd+ Co-founder DailyDoseofDS | IIT Varanasi | ex-AI Engineer MastercardAI | News",
+      "content": "Avi Chawla View Avi Chawla\u2019s profile \u2022 3rd+ Co-founder DailyDoseofDS | IIT Varanasi | ex-AI Engineer MastercardAI | Newsletter (150k+) 1w \u2022 1w Visible to everyone Visualise any GitHub repo as a graph. Simply replace \"github\" with \"gitcgr\" in the repo URL. This gives you an interactive graph of the entire codebase structure, with functions, classes, modules, and their relationships all laid out visually. Internally, it's powered by Code-Graph-RAG, an open-source system that does deep code analysis under the hood: - It uses Tree-sitter to parse your codebase across multiple languages. - Builds a full knowledge graph of your repo in Memgraph. - Lets you query your codebase in natural language. Code-Graph-RAG also works as an MCP server, which means you can plug it directly into Claude Code and query or edit your codebase using natural language from your terminal. ___ Interested in ML/AI Engineering? I have put together a free PDF (380+ pages) with 150+ core lessons. Find it in the comments! ___ Share this with your network if you found this insightful \u267b\ufe0f Find me \u2192 Avi Chawla. Every day, I share tutorials and insights on DS, ML, LLMs, and RAGs.",
+      "content_hash": "b23854dc6c15d06d66f465fc59166b744ac9225a39073a62367c1d3be3020a8c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7438947312392941568?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438947312392941568%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7438976720457740289",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7438976720457740289?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438976720457740289%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.905943Z",
+      "title": "Etienne DEBOST View Etienne DEBOST\u2019s profile \u2022 3rd+ Chief Technology Officer @ Wakam 1w \u2022 1w Visible to everyone \ud83d\udc4b Apr\u00e8s",
+      "content": "Etienne DEBOST View Etienne DEBOST\u2019s profile \u2022 3rd+ Chief Technology Officer @ Wakam 1w \u2022 1w Visible to everyone \ud83d\udc4b Apr\u00e8s OpenClaw, je vous pr\u00e9sente hermes-agent, par Nous Research, un nouvel assistant IA perso qui ne dort jamais \u26a1\ufe0f Plus simple \u00e0 installer, plus l\u00e9ger, plus stable, moins bloated et \u00e7a tourne bien \"out of the box\". En utilisant Warp (terminal intelligent), je l'ai d\u00e9ploy\u00e9 en quelques minutes sur une instance Scaleway DEV1-M (3 vCPU, 4 Go RAM, ~15 euros/mois), puis connect\u00e9 \u00e0 Telegram, et c'est parti. Quelques heures plus tard j'ai tous les outils connect\u00e9s (la voix, la web search, la g\u00e9n\u00e9ration d'image, github, google workspace, etc.), j'ai ma veille qui m'est proactivement pouss\u00e9e 3 fois par jour et j'ai un serveur web qui tourne avec un claude code pilot\u00e9 par hermes-agent qui me permet de tester des id\u00e9es depuis mon t\u00e9l\u00e9phone. M\u00e9moire persistante, skills sur \u00e9tag\u00e8re et auto-g\u00e9n\u00e9r\u00e9es, scheduling int\u00e9gr\u00e9, multi-plateforme. Le tout en open source, MIT. Le repo : https://lnkd.in/eieVr-ka",
+      "content_hash": "f44a7d0d42338707fab0628c4b9faa002b6d4ad6dcc72ec2d61c37d2b6a6a6b1",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7438976720457740289?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438976720457740289%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7438272463358095360",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7438272463358095360?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438272463358095360%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.906944Z",
+      "title": "Chao Huang View Chao Huang\u2019s profile \u2022 2nd Leading Data Intelligence Lab @HKU | Recent Work: nanobot, LightRAG, DeepCode",
+      "content": "Chao Huang View Chao Huang\u2019s profile \u2022 2nd Leading Data Intelligence Lab @HKU | Recent Work: nanobot, LightRAG, DeepCode, RAG-Anything, AI-Trader, DeepTutor, AutoAgent, AI-Researcher, VideoRAG, ViMax 1w \u2022 1w Visible to everyone \ud83d\ude80 CLI-Anything hits 11K GitHub stars\u2728 in just 5 days! AI agents like OpenClaw and nanobot are finally evolving from simple assistants to real \"digital workers\" that can actually USE software. Here's a fascinating observation: Software may no longer be built for humans \ud83d\udc68\u200d\ud83d\udcbb, but for agents \ud83e\udd16. If that's the future, do GUIs even matter? From an AI-native perspective, CLI might be the perfect interface for today's agent ecosystem. CLI-Anything's core vision is simple: Transform ALL software into Agent-Native with a single command \ud83d\udcbb. No complex API wrappers, no GUI dependencies. Every AI agent can now control professional software the \"Agent-friendly\" way. This might be the moment humans truly step away from mouse and keyboard \u2014 not because we don't want to use them, but because software itself will be designed Agent-Native from the ground up \ud83e\udd14\u26a1 Try CLI-Anything\ud83d\udd17: https://lnkd.in/g38bZcE9 #clianything #openclaw #nanobot #AIAgents",
+      "content_hash": "5c214c93d97098ec641569c11a0b351e8908c8e9cabac640243b5a9741b63805",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7438272463358095360?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438272463358095360%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7435718450817245184",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7435718450817245184?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7435718450817245184%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Rakesh Gohel View Rakesh Gohel\u2019s profile \u2022 2nd Scaling with AI Agents | Expert in Agentic AI & Cloud Native Solutions| B",
+      "content": "Rakesh Gohel View Rakesh Gohel\u2019s profile \u2022 2nd Scaling with AI Agents | Expert in Agentic AI & Cloud Native Solutions| Builder | Author of Agentic AI: Reinventing Business & Work with AI Agents | Driving Innovation, Leadership, and Growth | Let\u2019s Make It Happen! \ud83e\udd1d 2w \u2022 2w Visible to everyone Google released massive learning resources for AI Agents 10+ Code Samples, Whitepapers, Hands-on Projects and much more... Google recently finished wrapping up their latest 5-Days intensive Kaggle AI Agent course where they gave us bunch of resources to learn and practise building AI Agents. Day 1: Introduction to Agents Understand AI agent fundamentals: core architecture, taxonomy of capabilities, and how agents differ from LLMs. Learn to build agents that perceive, plan, act autonomously. Whitepaper: https://lnkd.in/grYivvCW Code Resource 1: https://lnkd.in/gcDruAx7 Code Resource 2: https://lnkd.in/gmYMFkDX Day 2: Agent Tools & Interoperability with MCP Learn how agents interact with external systems through tools and APIs. Understand MCP architecture, tool design best practices, and human-in-loop approval workflows. Whitepaper: https://lnkd.in/gnU9yqqW Code Resource 1: https://lnkd.in/g5ZQHGzg Code Resource 2: https://lnkd.in/gPsBR3k7 Day 3: Context Engineering: Sessions & Memory Discover how agents maintain context across conversations. Understand Sessions for immediate state and Memory for persistent learning across interactions. Whitepaper: https://lnkd.in/g9WztfuP Code Resource 1: https://lnkd.in/g4mQEtPE Code Resource 2: https://lnkd.in/gRtJFvi5 Day 4: Agent Quality Master observability foundations: Logs, Traces, Metrics. Learn evaluation frameworks including LLM-as-a-Judge and Human-in-the-Loop for production reliability. Whitepaper: https://lnkd.in/g-SAMSpV Code Resource 1: https://lnkd.in/gJxMN46g Code Resource 2: https://lnkd.in/gR_QKbrS Day 5: Prototype to Production Understand deployment lifecycle and scaling strategies. Learn Agent2Agent Protocol for system-wide coordination and production readiness on Vertex AI. Whitepaper: https://lnkd.in/gnUAscjM Code Resource 1: https://lnkd.in/gnikixYA Code Resource 2: https://lnkd.in/gUBBWhxS Note: Learn the prerequisites before running these solutions as they require a few unique configs and API keys. (Check comments) If you want to understand AI agent concepts deeper, my free newsletter breaks down everything you need to know: https://lnkd.in/g5-QgaX4 \ud83d\udcbe Save \u279e \ud83d\udc4d React \u279e \u267b\ufe0f Share & follow for everything AI Agents",
+      "content_hash": "f42139f60dded818794d4ba7e6e65b749e13bb0d1a110f4d3d07a473a4314514",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7435718450817245184?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7435718450817245184%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7438601389666230272",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7438601389666230272?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438601389666230272%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Chorouk Malmoum View Chorouk Malmoum\u2019s profile \u2022 2nd Founder & CTO | Building and teaching AI Agents | CITA Member | Fra",
+      "content": "Chorouk Malmoum View Chorouk Malmoum\u2019s profile \u2022 2nd Founder & CTO | Building and teaching AI Agents | CITA Member | France\u2019s Top 1% voice in AI 1w \u2022 1w Visible to everyone \ud83d\udea8 Breaking: LangChain just open-sourced Claude Code's architecture. MIT licensed. Any model. $0. It's called Deep Agents. Built on LangGraph, ships with everything a coding agent needs. Here's what's inside \ud83d\udc47 \ud83d\udccc Planning first Before executing anything, the agent writes a structured TODO list No more random tool calls. It thinks before it acts \ud83d\udccc Filesystem access The agent reads, writes, edits, searches files with absolute paths It can offload large results to files to avoid context window overflow \ud83d\udccc Subagent delegation Complex tasks get split across isolated sub-agents with their own context windows The main agent orchestrates. Subagents execute \ud83d\udccc Human-in-the-loop built in You can configure which tools need approval before running The agent pauses. You decide. It continues \ud83d\udccc Long-term memory Files under /memories/ persist across conversations via pluggable backends User preferences, knowledge bases, research threads, all saved The whole thing is built on LangGraph so you get streaming, Studio, and checkpointing out of the box One line to start: \u2192 pip install deepagents \u2192 create_deep_agent(tools=[your_tool], system_prompt=\"...\") This is what production-grade agentic AI looks like when it's open source. \ud83d\udd17 https://lnkd.in/dDgDAijZ \ud83d\udce9 Join 30K builders and execs getting the AgentX Newsletter and get : \u2192 Weekly AI agent briefings \u2192 Free templates & exclusive giveaways \ud83d\udc49 https://lnkd.in/dvvUD3hA",
+      "content_hash": "29e52ddae0e9bf1f19812a4539e85e408e90c5f56e08b0f7e254d4693638d15b",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7438601389666230272?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7438601389666230272%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7437758801770070017",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7437758801770070017?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437758801770070017%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Badr Erraji View Badr Erraji\u2019s profile \u2022 2nd Lead AI Engineer | AI Solution Architect | Agentic AI \u00b7 Knowledge Graphs \u00b7",
+      "content": "Badr Erraji View Badr Erraji\u2019s profile \u2022 2nd Lead AI Engineer | AI Solution Architect | Agentic AI \u00b7 Knowledge Graphs \u00b7 RAG | Building Production multi-agent systems serving thousands of users | CEO @ Dataunboxed 2w \u2022 2w Visible to everyone Vos agents IA codent \u00e0 l'aveugle. Et \u00e7a casse votre code en production. Le probl\u00e8me est simple. Cursor, Claude Code ou m\u00eame OpenCode sont puissants. Mais ils ne comprennent pas la structure de votre codebase. Votre agent modifie une fonction. Sauf qu'il ne sait pas que 47 autres fonctions en d\u00e9pendent. R\u00e9sultat : des breaking changes livr\u00e9es en prod. (ou jusqu'\u00e0 5x plus de token consomm\u00e9s pour trouver les bugs, les typing qui ont saut\u00e9s etc) GitNexus change la donne. C'est un outil open source qui transforme n'importe quelle codebase en knowledge graph. Chaque d\u00e9pendance, chaque cha\u00eene d'appels, chaque flux d'ex\u00e9cution est mapp\u00e9. Concr\u00e8tement, il expose 7 outils \u00e0 vos agents via MCP : 1. Impact analysis : visualiser le blast radius avant de toucher une fonction 2. Process-grouped search : retrouver du code par flux m\u00e9tier, pas juste par mot-cl\u00e9 3. Context 360 : voir tout ce qui appelle, importe ou \u00e9tend un symbole 4. Detect changes : analyser le risque d'un diff avant le commit 5. Rename multi-fichiers : renommer un symbole partout, en confiance 6. Cypher queries : interroger le graphe directement 7. List repos : g\u00e9rer plusieurs repos index\u00e9s Le plus impressionnant : \u2192 M\u00eame les petits mod\u00e8les deviennent fiables parce que le graphe fait le gros du travail \u2192 Tout tourne en local, aucun code envoy\u00e9 sur un serveur \u2192 12 langages support\u00e9s dont Python, TypeScript, Go, Rust, Java \u2192 Un seul serveur MCP sert tous vos repos index\u00e9s Avant : votre agent faisait 4 \u00e0 10 requ\u00eates pour comprendre une fonction. Maintenant : une seule requ\u00eate, contexte complet. Arr\u00eatez de laisser vos agents coder sans carte. Donnez-leur le plan complet. --- \ud83d\ude80 Pour devenir AI Engineer, ma\u00eetrisez : Software Engineering, System Design, Machine Learning et LLM Engineering. Suivez-moi pour des conseils pratiques et d\u00e9couvrez ma roadmap compl\u00e8te : https://lnkd.in/eBrznreQ Newsletter \"Data Unboxed\" pour plus d'analyses approfondies.",
+      "content_hash": "021f02bf32bc73669d96c2a6607b563d8f4105debc1c5e28e54efb128d6b5a5b",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7437758801770070017?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437758801770070017%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7437682657519357954",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7437682657519357954?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437682657519357954%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Paolo Perrone View Paolo Perrone\u2019s profile \u2022 2nd No BS AI/ML Content | ML Engineer with a Plot Twist \ud83e\udd77100M+ Views \ud83d\udcdd 2w \u2022",
+      "content": "Paolo Perrone View Paolo Perrone\u2019s profile \u2022 2nd No BS AI/ML Content | ML Engineer with a Plot Twist \ud83e\udd77100M+ Views \ud83d\udcdd 2w \u2022 2w Visible to everyone Google just gave every AI coding assistant NATIVE knowledge of how to build agents. 15,600 GitHub stars. One command. FREE. Your coding assistant doesn't know ADK. It hallucinates APIs and invents methods that don't exist. Here's why this changes everything: npx skills add google/adk-docs/skills -y One command. Your coding agent now knows: 1\ufe0f\u20e3 ADK Cheatsheet Full Python API reference. Every method, every parameter. No more hallucinated imports. 2\ufe0f\u20e3 ADK Dev Guide Development lifecycle and coding guidelines. The patterns Google's own team uses. 3\ufe0f\u20e3 ADK Deploy Guide Agent Engine and Cloud Run deployment. Prototype to production in the same workflow. 4\ufe0f\u20e3 ADK Eval Guide Evaluation methodology and scoring. Test your agents before they hit production. 5\ufe0f\u20e3 ADK Observability Guide Tracing, logging, and integrations. See what your agents are ACTUALLY doing. 6\ufe0f\u20e3 ADK Scaffold New agent project in seconds. Right structure from the start. Works with everything: \u26a1 Claude Code: one command install \u26a1 Cursor: MCP server config \u26a1 Gemini CLI: extension install \u26a1 Any MCP-compatible tool Plus a docs MCP server that connects your editor directly to ADK documentation. Always up to date. Machine-readable. What this replaces: Hours of Googling API docs \u2192 $0 Debugging hallucinated methods \u2192 $0 Manually reading changelogs \u2192 $0 ADK has 15,600 stars, 2,800+ dependent projects, and now ships in Python, TypeScript, Go, and Java. Google isn't just building an agent framework. They're teaching YOUR coding assistant how to use it. \ud83d\udd17 Install skills: npx skills add google/adk-docs/skills -y \ud83d\udd17 Full docs: google.github.io/adk-docs Are you still letting your coding assistant hallucinate ADK APIs? \ud83d\udc47 \u267b\ufe0f Repost for someone building with Google ADK who doesn't know about this",
+      "content_hash": "45e4aaa6aa7ad85acf768f8761a986fb9aa3783b05b3b09e98d75fd48d482a5b",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7437682657519357954?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437682657519357954%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7437097387292262400",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7437097387292262400?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437097387292262400%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Status is online Om Nalinde View Om Nalinde\u2019s profile \u2022 3rd+ Building & Teaching AI Agents to Devs | CS @IIIT 2w \u2022 2w Vi",
+      "content": "Status is online Om Nalinde View Om Nalinde\u2019s profile \u2022 3rd+ Building & Teaching AI Agents to Devs | CS @IIIT 2w \u2022 2w Visible to everyone This GitHub repo just hit 122K stars \ud83d\udd25 It\u2019s the fastest way to ship an AI app: Dify is one of those tools where you open it and immediately think \u2014 wait, why was I doing all of this manually? P.S. I share such unpopular resources with 200K+ AI/ML Engineers everyday here: https://lnkd.in/dcibJhzQ If you've ever tried shipping an AI app from scratch, you know the pain. You're not just writing AI logic. You're stitching together a RAG pipeline, a vector DB, a model router, an API layer, monitoring, and somehow a FastAPI backend too. It's not development. It's archaeology. Dify collapses all of that into one platform. Here's what it actually handles: 1/ RAG pipelines Built-in hybrid search (BM25 + vector), smart chunking, and native support for PDFs, Notion docs, DOCX files, and web scraping. Out of the box. 2/ Agent orchestration Visually build ReAct-style workflows using tools, API calls, and logic blocks. No manual loops. No Python spaghetti. 3/ Model routing Swap between GPT, Claude, or local models like Llama via Ollama/vLLM without rewriting your stack. 4/ Auto-generated APIs Every workflow you save gets a REST endpoint automatically. Integrate it and move on. 5/ LLMOps & monitoring Full tracing, latency tracking, token usage, and annotation support. Production-ready from day one. And perhaps the most interesting part? You can self-host the whole thing. Or use their cloud. It's 100% free to start. This isn't a \"nice to have\" tool. It's the missing infrastructure layer between your AI logic and a real product. Link to the repo: https://lnkd.in/gDt5NPRu",
+      "content_hash": "be2c89fecdfdec9823323d1335c5e2dee1d12074a2c058076d0fd678df54e54b",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7437097387292262400?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437097387292262400%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7437127678618484737",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7437127678618484737?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437127678618484737%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Paul Iusztin View Paul Iusztin\u2019s profile \u2022 2nd Senior AI Engineer \u2022 Founder @ Decoding AI \u2022 Author @ LLM Engineer\u2019s Hand",
+      "content": "Paul Iusztin View Paul Iusztin\u2019s profile \u2022 2nd Senior AI Engineer \u2022 Founder @ Decoding AI \u2022 Author @ LLM Engineer\u2019s Handbook ~ I ship AI products and teach you about the process. 2w \u2022 2w Visible to everyone If you want to learn how to build production-grade AI agents... Star this GitHub repository: \u2192 https://lnkd.in/dFF7QFXq It contains the lesson notebooks from the Agentic AI Engineering Course I recently launched in collaboration with Towards AI, Inc. These notebooks walk through the core building blocks we use to teach engineers how to design agent systems. Inside you\u2019ll find 17 structured notebooks, with lessons on: \u2022 Structured outputs \u2022 LLM workflow patterns \u2022 Tools \u2022 ReAct practice \u2022 Memory for Agents \u2022 Multimodal data \u2022 Data ingestion and tool \u2026 and many more. The goal is to help you understand patterns like: \u2022 Separating exploration from execution \u2022 When to use agents vs workflows \u2022 Designing reflection loops \u2022 Structuring tool usage and memory \u2022 Evaluating and monitoring agent systems Notebooks are one of the fastest ways to learn. We use them to walk you through the underlying Python modules that power the systems in the course. You can run the notebooks step-by-step, modify them, and experiment with different agent architectures. You can also run them directly in Google Colab, or clone the repo and explore locally. But the course itself is implemented as modular Python code. So beyond the notebooks, you\u2019ll also see how agent systems are structured in real production-style modules. If you want to start exploring agentic system design, begin here: \u2192 https://lnkd.in/dFF7QFXq And if you want the full structured curriculum, including the complete agent projects and production system architecture: \u2192 https://lnkd.in/dtxZuZpb P.S. The first batch of seats we opened for this course sold out in 14 days. We've just opened another batch of 100 seats for $499.",
+      "content_hash": "6199dec6b46780f9e52d14a8522ed90b3d3141a13a72aebe33aafd914fbd0c59",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7437127678618484737?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7437127678618484737%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7436782151091601408",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436782151091601408?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436782151091601408%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Mathias Lechner View Mathias Lechner\u2019s profile \u2022 3rd+ Co-founder & CTO @ Liquid AI | Researcher @ MIT 2w \u2022 2w Visible to",
+      "content": "Mathias Lechner View Mathias Lechner\u2019s profile \u2022 3rd+ Co-founder & CTO @ Liquid AI | Researcher @ MIT 2w \u2022 2w Visible to everyone Most foundation models never become products. They get uploaded to Hugging Face, collect a few hundred downloads, maybe a nice README. Then nothing. The benchmarks look good. But nobody builds anything with it. I've seen this pattern hundreds of times. The gap between \"here's a trained model\" and \"here's something that solves a problem\" is enormous. It requires evaluation, data curation, fine-tuning, deployment engineering, and a dozen decisions that nobody writes about because they're unglamorous. I want to change that. Today I'm launching a new YouTube series: Build in Public, From Foundation Model to Product. The idea: I take a pretrained Liquid AI Foundation Model and turn it into a something that actually provides value to a user. And the best part: document every step, every tool built along the way, every wrong turn, every key decision explained. I've shipped this pipeline many times. But I've never shown the full process start to finish. This series is that. What you'll see across the episodes: \u2192 How I evaluate a model before fine-tuning \u2192 How I get the right training data \u2192 The fine-tuning runs, what I tune, how much, when I stop \u2192 Deploying so people can actually use it \u2192 Fully with coding agents (Claude Code, Codex, OpenCode) as part of a modern workflow Episode 1 is live now, where I built a pip-installable seed data provider. Link in comments",
+      "content_hash": "99211d62d16f74d1fb4b134c2ca88515eeb464a7a1a93bf0bd545d6e77c3c0d7",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7436782151091601408?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436782151091601408%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7436959830768152576",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436959830768152576?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436959830768152576%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Paolo Perrone View Paolo Perrone\u2019s profile \u2022 2nd No BS AI/ML Content | ML Engineer with a Plot Twist \ud83e\udd77100M+ Views \ud83d\udcdd 2w \u2022",
+      "content": "Paolo Perrone View Paolo Perrone\u2019s profile \u2022 2nd No BS AI/ML Content | ML Engineer with a Plot Twist \ud83e\udd77100M+ Views \ud83d\udcdd 2w \u2022 2w Visible to everyone LangChain just open-sourced their answer to Claude Code. 9.9K GitHub stars. 5 hours old. Deep Agents: the batteries-included agent harness. MIT licensed. FREE. Here's why this is a big deal: Claude Code is amazing but closed-source and locked to Anthropic. Deep Agents gives you the same architecture. Any model. Any provider. What's included out of the box: 1\ufe0f\u20e3 Planning write_todos for task breakdown and progress tracking. The agent plans before it codes. 2\ufe0f\u20e3 Filesystem access read_file, write_file, edit_file, ls, glob, grep. Full codebase navigation. 3\ufe0f\u20e3 Shell execution Run commands with sandboxing. Build, test, deploy from the agent. 4\ufe0f\u20e3 Sub-agents Spawn isolated workers with their own context windows. Parallel work without context pollution. 5\ufe0f\u20e3 Context management Auto-summarization when conversations get long. Large outputs saved to files. The problem Claude Code solved, now OPEN SOURCE. Two lines to start: pip install deepagents agent = create_deep_agent() Works with Claude, OpenAI, Google, or any LangChain-compatible model. Swap providers without rebuilding. Built on LangGraph. Streaming, persistence, checkpointing: all production-ready. The CLI adds web search, remote sandboxes, persistent memory, custom skills, and human-in-the-loop approval. From their README: \"This project was primarily inspired by Claude Code.\" They're not hiding it. They're DEMOCRATIZING it. Are you still locked into a single AI coding provider? \ud83d\udc47 \u267b\ufe0f Repost for someone who wants Claude Code capabilities without the lock-in",
+      "content_hash": "4755337620bc7ee056e3998dce2a205f62ec2af4af766aa2fe22c29fb3537fc3",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7436959830768152576?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436959830768152576%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7436728689498865664",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436728689498865664?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436728689498865664%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Hasanpreet Singh Toor View Hasanpreet Singh Toor\u2019s profile \u2022 3rd+ AI & Tech Educator | Follow me to learn about practica",
+      "content": "Hasanpreet Singh Toor View Hasanpreet Singh Toor\u2019s profile \u2022 3rd+ AI & Tech Educator | Follow me to learn about practical ways to use AI and Tech Tools for you & your business | Founder TheProHuman AI | 1.5 Million Subscribers on Social Media 2w \u2022 2w Visible to everyone \ud83d\udea8 I just found a 100% open-source Python web scraping library that makes you basically invisible to bot detection. It's called Crawlee. Build reliable crawlers that fly under the radar of every modern anti-bot system. What it does: \u2192 Scrapes any website with BeautifulSoup, Playwright, or raw HTTP your choice \u2192 Auto-rotates proxies and manages sessions so you never get blocked \u2192 Handles JS-heavy sites with full headless browser support \u2192 Parallel crawling that scales automatically with your system resources \u2192 Saves data to persistent storage no lost progress if something crashes \u2192 Retries failed requests automatically without you touching anything One pip install. Works on any site. Any format. HTML, PDF, JPG, PNG all of it. 8.1K stars. 100% Opensource. Apache 2.0 License. (Link in the comments)",
+      "content_hash": "8f6bf95cf048b5e80ba00f22d29562522bfc8a5adc8e159682e24de842321f0f",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7436728689498865664?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436728689498865664%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7436845676593864704",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436845676593864704?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436845676593864704%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Lior Alexander View Lior Alexander\u2019s profile \u2022 2nd Helping devs stay up to date with AI. CEO at AlphaSignal. 2w \u2022 2w Vis",
+      "content": "Lior Alexander View Lior Alexander\u2019s profile \u2022 2nd Helping devs stay up to date with AI. CEO at AlphaSignal. 2w \u2022 2w Visible to everyone Andrew Ng just solved one of the biggest problem with Agents. He released Context Hub, a CLI tool to fetch live API documentation. One command. The agent gets exactly what it needs before writing a single line of code. Agents trained months ago are flying blind. They invent parameter names. They call functions that no longer exist. They confidently write code against a spec that changed in the last release. > No more hallucinated parameters > Docs pulled fresh before each call > Agents log useful discoveries > Notes persist between sessions The agent runs a CLI command before touching the code. Instead of relying on stale data, it reads the actual spec. Fast-moving APIs used to mean maintaining a doc dump in every prompt. Now the agent does that work itself. When it finds a workaround, it saves a note for next time.",
+      "content_hash": "2c0f8b4c5fa8127348d5d7b04a2ccc67385165206a5b7d34c7088179bd6b42e6",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7436845676593864704?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436845676593864704%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7436800153933475840",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436800153933475840?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436800153933475840%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Charly Wargnier View Charly Wargnier\u2019s profile \u2022 3rd+ Ex-Streamlit / Ex-Snowflake Maestro \ud83e\ude84 \u2022 Sharing insights on AI age",
+      "content": "Charly Wargnier View Charly Wargnier\u2019s profile \u2022 3rd+ Ex-Streamlit / Ex-Snowflake Maestro \ud83e\ude84 \u2022 Sharing insights on AI agents, LLMs, Data Science \u2022 160K followers on X \u2192 @Datachaz 2w \u2022 2w Visible to everyone 13,500 GitHub \u2b50 in just a few days for a newly open-sourced project. \ud83e\udd2f And for good reason. Paperclip isn't just another AI wrapper, it's a powerful Node.js backend and React dashboard designed to tame the wild west of AI agents. You need Paperclip if you: \ud83e\udde0 Have 20 Claude tabs open and can't remember who is doing what. \ud83e\udd16 Rely on different types of agents (Codex, OpenClaw) and need them to collaborate. \ud83d\udcc8 Want agents working for you 24/7 with fully auditable work and costs. \ud83d\ude80 Want to build an autonomous business, not spend your days managing pull requests. Here is why the entire dev timeline is obsessed with it right now: \u2192 It forces structure: Budgets, org charts, and goal alignments are built right in. \u2192 Deep integration: It coordinates tasks atomically with models like OpenClaw. \u2192 Removes the mental load: You manage the vision, the agents handle the execution. Any agent, any runtime, with seamless coordination and zero lock-in. \ud83d\udd25 Also an MIT-licensed, fully open-source project that's moving incredibly fast with a great Discord community. Kudos to @dotta for open-sourcing it. You can jump right in using the command below: `npx paperclipai onboard` Here is the repo, don't forget to add a \u2b50 ! \u2192 https://lnkd.in/eFZ8f883",
+      "content_hash": "069e14ab4b4ae51c5b74c3b5bc16fed515b9fe92b12a5cf4cf194ead54342e49",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7436800153933475840?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436800153933475840%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7435675060817797120",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7435675060817797120?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7435675060817797120%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Adham Sersour View Adham Sersour\u2019s profile \u2022 1st Senior AI/ML Engineer 2w \u2022 2w Visible to everyone LangChain just releas",
+      "content": "Adham Sersour View Adham Sersour\u2019s profile \u2022 1st Senior AI/ML Engineer 2w \u2022 2w Visible to everyone LangChain just release skills for building agents with LangChain, LangGraph, and Deep Agents. Claude Code goes from 29% to 95% task success on LangChain projects, and from 17% to 92% on LangSmith. The benchmarks are public and open source. As a reminder, a skill is a reusable block of expert knowledge that tells an agent how to use a specific tool or framework correctly. Skills are structured instruction sets living in a files called skills.md and loaded dynamically as needed. An agent first sees only the name and description of a skill, then pulls the full content on demand. This really matter because flooding an agent with context kills its performance. v1 ships with 11 skills across three categories. \u2022 LangChain core for standard agent patterns \u2022 LangGraph for human-in-the-loop workflows and durable execution \u2022 DeepAgents for multi-agent systems with middleware and FileSystem tools. LangSmith skills are included in the same release. If your coding agent supports the standard, you can plug it into your existing LangChain project as is. #LangChain #AIAgents #LLM #LangGraph #DeveloperTools",
+      "content_hash": "98e23c4ec1502006e3f001369c327130726f3540466502d8ce949fc60a19932c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7435675060817797120?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7435675060817797120%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7436358110623154176",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7436358110623154176?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436358110623154176%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T11:21:03.907945Z",
+      "title": "Miguel Otero Pedrido View Miguel Otero Pedrido\u2019s profile \u2022 2nd ML / AI Engineer | Founder @ The Neural Maze - Just a guy",
+      "content": "Miguel Otero Pedrido View Miguel Otero Pedrido\u2019s profile \u2022 2nd ML / AI Engineer | Founder @ The Neural Maze - Just a guy who builds AI Systems that actually work 2w \u2022 2w Visible to everyone 99% of my agent projects follow this structure Not because I'm lazy ... because it works If you've ever struggled with structuring your agent systems for scale (and sanity \ud83d\ude05), this cookiecutter might be the missing piece. With one command, you get a scaffolded project with placeholders for: \ud83d\udee0 \ud835\udc02\ud835\udc08 / \ud835\udc02\ud835\udc03 \ud835\udc0f\ud835\udc22\ud835\udc29\ud835\udc1e\ud835\udc25\ud835\udc22\ud835\udc27\ud835\udc1e\ud835\udc2c \u2013 automated builds & tests \ud83d\udcc1 \ud835\udc03\ud835\udc1a\ud835\udc2d\ud835\udc1a \u2013 static files & resources \ud83e\uddea \ud835\udc0d\ud835\udc28\ud835\udc2d\ud835\udc1e\ud835\udc1b\ud835\udc28\ud835\udc28\ud835\udc24\ud835\udc2c \u2013 sandbox for prompts & workflows \ud83e\uddf1 \ud835\udc00\ud835\udc20\ud835\udc1e\ud835\udc27\ud835\udc2d \ud835\udc0f\ud835\udc32\ud835\udc2d\ud835\udc21\ud835\udc28\ud835\udc27 \ud835\udc0b\ud835\udc22\ud835\udc1b\ud835\udc2b\ud835\udc1a\ud835\udc2b\ud835\udc32 \u2013 clean architecture (domain / application / infra layers) \ud83e\uddea \ud835\udc13\ud835\udc1e\ud835\udc2c\ud835\udc2d\ud835\udc2c \u2013 unit, integration, ... \ud83e\udde9 \ud835\udc00\ud835\udc1d\ud835\udc1d\ud835\udc22\ud835\udc2d\ud835\udc22\ud835\udc28\ud835\udc27\ud835\udc1a\ud835\udc25 \ud835\udc05\ud835\udc22\ud835\udc25\ud835\udc1e\ud835\udc2c \u2013 Docker, Makefile, configs, ... \ud83d\udcc4 \ud835\udc11\ud835\udc04\ud835\udc00\ud835\udc03\ud835\udc0c\ud835\udc04.\ud835\udc26\ud835\udc1d \u2013 because a solid README is non-negotiable No more messy agent repos. Just a clean, extensible foundation that grows with you! Want to see it in action? \ud835\udc08 \ud835\udc30\ud835\udc2b\ud835\udc28\ud835\udc2d\ud835\udc1e \ud835\udc1a \ud835\udc30\ud835\udc1a\ud835\udc25\ud835\udc24\ud835\udc2d\ud835\udc21\ud835\udc2b\ud835\udc28\ud835\udc2e\ud835\udc20\ud835\udc21 \ud835\udc1a\ud835\udc2b\ud835\udc2d\ud835\udc22\ud835\udc1c\ud835\udc25\ud835\udc1e \ud835\udc28\ud835\udc27 \ud835\udc21\ud835\udc28\ud835\udc30 \ud835\udc2d\ud835\udc28 \ud835\udc2e\ud835\udc2c\ud835\udc1e \ud835\udc22\ud835\udc2d \ud83d\udc47 \ud83d\udcd5 \ud83d\udc49 https://lnkd.in/dhSfubhh",
+      "content_hash": "7e763f4c221c2bd4ec3f920fbe31cb988f825cbf550bb7fd89e046e068bc1449",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7436358110623154176?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7436358110623154176%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    }
+  ],
+  "classifications": [
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7442495601893826561",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.5714,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7441777851781095424",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.4286,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7442177776113221632",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.7143,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7442133113826205696",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.4286,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7441053556767465472",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.5714,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7441448763333943296",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7441507072808116224",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7439936239430156289",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7439002469608812544",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7438947312392941568",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7438976720457740289",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7438272463358095360",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7435718450817245184",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "mcp",
+          "topic_name": "MCP",
+          "confidence": 0.5,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7438601389666230272",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7437758801770070017",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7437682657519357954",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.6,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7437097387292262400",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.6,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7437127678618484737",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.6,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7436782151091601408",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7436959830768152576",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7436728689498865664",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7436845676593864704",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7436800153933475840",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.6,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7435675060817797120",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "agents",
+          "topic_name": "Agents",
+          "confidence": 0.4,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7436358110623154176",
+      "taxonomy_version": "v1.0.0",
+      "matches": []
+    }
+  ],
+  "classificationRun": {
+    "run_id": "bc42ea3e-3f33-4257-b416-e0d848083d78",
+    "started_at": "2026-03-26T11:21:04.913596Z",
+    "finished_at": "2026-03-26T11:21:13.493331Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_fallback",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "zeroshot_min_similarity": 0.35,
+    "secondary_min_similarity": 0.5,
+    "processed_count": 25,
+    "matched_count": 19,
+    "diagnostics": {
+      "unmatched_count": 6,
+      "strategy": "deterministic keyword overlap fallback"
+    }
+  },
+  "topicCandidates": [
+    {
+      "candidate_id": "fc2097b5-6b40-47ae-85e5-0231e131e28f",
+      "run_id": "c7b4cb6b-fcb8-4250-b9f6-c7bc9e0a31e2",
+      "taxonomy_version": "v1.0.0",
+      "label": "chawla",
+      "keywords": [
+        "\"gitcgr\"",
+        "\"github\"",
+        "(150k+)",
+        "(380+",
+        "_____",
+        "across"
+      ],
+      "evidence_source_keys": [
+        "linkedin_saved:urn:li:activity:7441448763333943296",
+        "linkedin_saved:urn:li:activity:7438947312392941568"
+      ],
+      "confidence": 0.5,
+      "state": "pending"
+    },
+    {
+      "candidate_id": "69aeb85f-ffb4-4bc0-9d8f-f646eff69994",
+      "run_id": "c7b4cb6b-fcb8-4250-b9f6-c7bc9e0a31e2",
+      "taxonomy_version": "v1.0.0",
+      "label": "labarta",
+      "keywords": [
+        "\"llms",
+        "(dpo)",
+        "(sft)",
+        "accelerate",
+        "admet",
+        "affinity"
+      ],
+      "evidence_source_keys": [
+        "linkedin_saved:urn:li:activity:7442133113826205696",
+        "linkedin_saved:urn:li:activity:7442495601893826561",
+        "linkedin_saved:urn:li:activity:7441053556767465472"
+      ],
+      "confidence": 0.5,
+      "state": "pending"
+    },
+    {
+      "candidate_id": "195b31a5-ce62-4aff-8a3a-be35c0cd1631",
+      "run_id": "c7b4cb6b-fcb8-4250-b9f6-c7bc9e0a31e2",
+      "taxonomy_version": "v1.0.0",
+      "label": "github",
+      "keywords": [
+        "\"claw\",",
+        "\"prompt",
+        "\"skills\"",
+        "(claude,",
+        "(spec",
+        "accessible"
+      ],
+      "evidence_source_keys": [
+        "linkedin_saved:urn:li:activity:7441507072808116224",
+        "linkedin_saved:urn:li:activity:7439002469608812544"
+      ],
+      "confidence": 0.5,
+      "state": "pending"
+    },
+    {
+      "candidate_id": "5ef1ef9d-2344-4874-8d82-aab03dff5d7e",
+      "run_id": "c7b4cb6b-fcb8-4250-b9f6-c7bc9e0a31e2",
+      "taxonomy_version": "v1.0.0",
+      "label": "paolo",
+      "keywords": [
+        "\"this",
+        "15,600",
+        "2,800+",
+        "about",
+        "access",
+        "actually"
+      ],
+      "evidence_source_keys": [
+        "linkedin_saved:urn:li:activity:7436959830768152576",
+        "linkedin_saved:urn:li:activity:7437682657519357954"
+      ],
+      "confidence": 0.5,
+      "state": "pending"
+    }
+  ],
+  "discoveryRun": {
+    "run_id": "c7b4cb6b-fcb8-4250-b9f6-c7bc9e0a31e2",
+    "started_at": "2026-03-26T11:21:13.493331Z",
+    "finished_at": "2026-03-26T11:21:13.507064Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_grouping",
+    "input_count": 25,
+    "candidate_count": 4,
+    "diagnostics": {
+      "scope_counts": {
+        "unmatched": 6,
+        "low_confidence": 11,
+        "recent": 25
+      },
+      "backlog_age_days": 0,
+      "fallback_reason": "Repo id must use alphanumeric chars, '-', '_' or '.'. The name cannot start or end with '-' or '.' and the maximum length is 96: 'C:\\Users\\mbottari\\.models\\all-MiniLM-L6-v2_model.safetensors'."
+    }
+  },
+  "discoveryPostTopics": [
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7441448763333943296",
+      "topicLabel": "chawla",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "fc2097b5-6b40-47ae-85e5-0231e131e28f"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7438947312392941568",
+      "topicLabel": "chawla",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "fc2097b5-6b40-47ae-85e5-0231e131e28f"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7442133113826205696",
+      "topicLabel": "labarta",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "69aeb85f-ffb4-4bc0-9d8f-f646eff69994"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7442495601893826561",
+      "topicLabel": "labarta",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "69aeb85f-ffb4-4bc0-9d8f-f646eff69994"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7441053556767465472",
+      "topicLabel": "labarta",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "69aeb85f-ffb4-4bc0-9d8f-f646eff69994"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7441507072808116224",
+      "topicLabel": "github",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "195b31a5-ce62-4aff-8a3a-be35c0cd1631"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7439002469608812544",
+      "topicLabel": "github",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "195b31a5-ce62-4aff-8a3a-be35c0cd1631"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7436959830768152576",
+      "topicLabel": "paolo",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "5ef1ef9d-2344-4874-8d82-aab03dff5d7e"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7437682657519357954",
+      "topicLabel": "paolo",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "5ef1ef9d-2344-4874-8d82-aab03dff5d7e"
+    }
+  ],
+  "discoveryTelemetry": {
+    "candidate_count": 4,
+    "confidence_bands": {
+      "lt_0_4": 0,
+      "0_4_to_0_7": 4,
+      "gte_0_7": 0
+    },
+    "average_evidence_size": 2.25,
+    "backlog_age_days": 0,
+    "scope_counts": {
+      "unmatched": 6,
+      "low_confidence": 11,
+      "recent": 25
+    }
+  }
+}

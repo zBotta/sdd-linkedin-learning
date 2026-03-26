@@ -7,11 +7,11 @@ import streamlit as st
 
 from cloud.ui.components.auth_gate import require_auth
 from cloud.ui.data_access import UILibraryRepository
-from cloud.ui.pages.home import render_home, render_inbox
-from cloud.ui.pages.review import render as render_review
-from cloud.ui.pages.search import render as render_search
-from cloud.ui.pages.settings import render as render_settings
-from cloud.ui.pages.topics import render as render_topics
+from cloud.ui.views.home import render_home, render_inbox
+from cloud.ui.views.review import render as render_review
+from cloud.ui.views.search import render as render_search
+from cloud.ui.views.settings import render as render_settings
+from cloud.ui.views.topics import render as render_topics
 from shared.db import Database
 
 

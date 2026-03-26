@@ -7,7 +7,7 @@ name = "linkedin-saved-library"
 version = "0.1.0"
 description = "Local sync prototype for LinkedIn saved posts"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = "==3.12.*"
 dependencies = [
   "playwright>=1.45.0",
   "pydantic>=2.8.0",
@@ -36,3 +36,7 @@ include = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+markers = [
+  "real_runtime: executes real podman compose deployment and live service checks",
+]
+

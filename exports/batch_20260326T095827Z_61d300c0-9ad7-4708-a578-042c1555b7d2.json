@@ -1,0 +1,209 @@
+{
+  "batchId": "61d300c0-9ad7-4708-a578-042c1555b7d2",
+  "exportedAt": "2026-03-26T09:58:27.052399+00:00",
+  "posts": [
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7442495601893826561",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7442495601893826561?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442495601893826561%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T09:57:36.696356Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 1d \u2022 1d Visible to everyone Stop wrestling with fine-tuning scripts cobbled together from 5 different repos. Here's something better \u2b07\ufe0f We open-sourced leap-finetune, your go-to tool to fine-tune LFM models by Liquid AI One library. SFT. DPO. VLMs. MoE. 100% Open Source. \ud835\uddd5\ud835\ude02\ud835\ude01 \ud835\ude04\ud835\uddf5\ud835\ude06 \ud835\ude01\ud835\uddf5\ud835\uddf6\ud835\ude00 \ud835\ude01\ud835\uddfc\ud835\uddfc\ud835\uddf9? Fine-tuning small models is the most underrated skill in AI right now. A 1.2B model fine-tuned on your data beats GPT-4 on narrow tasks. Costs pennies. Runs anywhere. But the tooling has been a mess. You grab TRL from here, Accelerate from there, hack together some Ray scripts, pray your YAML configs don't conflict. leap-finetune fixes this. \ud835\uddea\ud835\uddf5\ud835\uddee\ud835\ude01'\ud835\ude00 \ud835\uddf6\ud835\uddfb\ud835\ude00\ud835\uddf6\ud835\uddf1\ud835\uddf2? \u2192 Supervised Fine-Tuning (SFT) \u2192 Direct Preference Optimization (DPO) \u2192 Vision-Language Model fine-tuning \u2192 Mixture of Experts support \u2192 LoRA out of the box \u2192 SLURM integration for cluster jobs Works on a single GPU. Scales to 8x H100s without changing your code. It even runs on serverless GPUs on Modal \ud835\udddb\ud835\uddfc\ud835\ude04 \ud835\ude01\ud835\uddfc \ud835\uddff\ud835\ude02\ud835\uddfb \ud835\uddf6\ud835\ude01? Git clone the repo, edit your configuration, and then uv sync uv run leap-finetune config.yaml That's it. Built on Ray Train + Accelerate + TRL. Ready for production. Enjoy \u2193 https://lnkd.in/dEzmS9xD PS: Thoughtful PR contributions are really welcome",
+      "content_hash": "fd8d3921c6590836c96dbb78919df9d616c77cd6bbf3a9d76476a4e35221f82c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7442495601893826561?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442495601893826561%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7441777851781095424",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7441777851781095424?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441777851781095424%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T09:57:36.697072Z",
+      "title": "Building a local Home Assistant with LFM models paulabartabajo.substack.com",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 3d \u2022 3d Visible to everyone Advice for AI engineers \ud83d\udca1 Stop reading about the \u201cwonders\u201d of Small Language Models. Instead, build something useful yourself. There\u2019s a step by step example to get started \u2b07\ufe0f https://lnkd.in/dRWcjrKr? Building a local Home Assistant with LFM models paulabartabajo.substack.com",
+      "content_hash": "d92cb6b274d9a2157b4457488bd042d533f3c2de8502acdedc931712acba64ef",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7441777851781095424?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7441777851781095424%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7442177776113221632",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7442177776113221632?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442177776113221632%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T09:57:36.697316Z",
+      "title": "Lan Chu View Lan Chu\u2019s profile \u2022 2nd AI Tech Lead | Senior Data Scientist | Work with LLMs before they were cool 1d \u2022 1d",
+      "content": "Lan Chu View Lan Chu\u2019s profile \u2022 2nd AI Tech Lead | Senior Data Scientist | Work with LLMs before they were cool 1d \u2022 1d Visible to everyone I tried to run Claude Code with an open source model Qwen3.5-35B-A3B. Zero API costs. Local inference. Same Claude Code workflow. When I run out of tokens with Claude Code, I sometimes feel like a deer in headlights. Especially when debugging, I don\u2019t want to manually shift through my code base, because that is what AI is for. Now that local models are getting better, I gave it a try on a Macbook M1 32GB to see if it\u2019s a nice alternative. The setup works with any open model e.g Qwen3.5, DeepSeek, Gemma. My setup consists of using llama.cpp to run the model as a service and connecting it to Claude Code. Setting it up takes about 15-20 minutes, of which the majority of the time is waiting for the download of a 30B model to complete. Qwen3.5 is currently the strongest agentic and coding model trained for long-horizon reasoning, complex tool use, and recovery from execution failures. My first impressions: 1. \ud835\udc08\ud835\udc2d \ud835\udc22\ud835\udc2c \ud835\udc2c\ud835\udc25\ud835\udc28\ud835\udc30! An M1 chip is clearly not as fast as a top tier NVIDIA video card. With a local model, you start to notice how much of the experience depends on speed, not just quality. Took almost 5-10 minutes of thinking to identify a bug. This is not very practical. 2. \ud835\udc02\ud835\udc28\ud835\udc27\ud835\udc2d\ud835\udc1e\ud835\udc31\ud835\udc2d \ud835\udc22\ud835\udc2c \ud835\udc1a \ud835\udc2b\ud835\udc1e\ud835\udc1a\ud835\udc25 \ud835\udc1c\ud835\udc28\ud835\udc27\ud835\udc2c\ud835\udc2d\ud835\udc2b\ud835\udc1a\ud835\udc22\ud835\udc27\ud835\udc2d \ud835\udc25\ud835\udc28\ud835\udc1c\ud835\udc1a\ud835\udc25\ud835\udc25\ud835\udc32. The context window is the bottleneck. The model natively supports 262K tokens, but locally you are constrained by your available RAM. Tokens fill up fast when Claude Code is reading multiple files and keeping tool call history. 3. \ud835\udc08\ud835\udc2d \ud835\udc22\ud835\udc2c \ud835\udc2a\ud835\udc2e\ud835\udc22\ud835\udc2d\ud835\udc1e \ud835\udc2c\ud835\udc26\ud835\udc1a\ud835\udc2b\ud835\udc2d (as first impressions): although the ttft is a bit long, it works rather well otherwise. I threw a few bugs at Qwen3.5-35B and it diagnosed them correctly and implemented working solutions. For refactoring or complicated features, I wouldn\u2019t trust it yet, need to test more. Overall I definitely see the value, and while it is definitely not a replacement for something like Opus 4.5, it is exciting to see small language models getting better and more accessible. I wonder how the large open weight models compare to Opus 4.5 though. Is it perhaps time to buy a mac studio and try out the 397B version of Qwen3.5. What do you think? Want to set it up yourself? Link to step-by-step guide in the comment. \u2b07\ufe0f",
+      "content_hash": "190a52d87cf995b27a815c640ca120e4572fdcc8633010de05c3965ebb91ac60",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7442177776113221632?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442177776113221632%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    },
+    {
+      "source": "linkedin_saved",
+      "source_post_id": "urn:li:activity:7442133113826205696",
+      "url": "https://www.linkedin.com/feed/update/urn:li:activity:7442133113826205696?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442133113826205696%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29",
+      "author": null,
+      "published_at": null,
+      "saved_at": "2026-03-26T09:57:36.697408Z",
+      "title": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father o",
+      "content": "Pau Labarta Bajo View Pau Labarta Bajo\u2019s profile \u2022 3rd+ Building and teaching AI that works \u200b> Maths Olympian\u200b> Father of 1.. sorry 2 kids 2d \u2022 2d Visible to everyone \"LLMs just memorize. They're not really intelligent.\" My answer: I don't care. Consider drug discovery. Drug discovery is the process of finding molecules that treat disease. Every medicine you've ever taken started here. Finding molecules that treat disease. But here's the problem: It takes 10 to 15 years. Costs billions. Over 90% of candidates fail in clinical trials. Why? Because most of the work is trial and error. Synthesize, test, fail, repeat. Each iteration costs months and millions. But the thing is, the data to make better predictions exists. But it's scattered and high-dimensional. No human can hold the full picture. A model trained on this data can. It compresses that space into weights. \ud835\uddd9\ud835\uddfc\ud835\uddff \ud835\uddf2\ud835\ude05\ud835\uddee\ud835\uddfa\ud835\uddfd\ud835\uddf9\ud835\uddf2 A new paper from Insilico Medicine and Liquid AI trained a 2.6B parameter model on 120 billion tokens of pharmaceutical data. It matches or outperforms models 10x its size. It beat TxGemma-27B on 13 of 22 ADMET tasks. It outperformed GPT-4.5 and Claude Opus on affinity benchmarks. \ud835\uddea\ud835\uddf5\ud835\ude06 \ud835\uddf6\ud835\ude00 \ud835\ude01\ud835\uddf5\ud835\uddf6\ud835\ude00 \ud835\uddff\ud835\uddf2\ud835\uddf9\ud835\uddf2\ud835\ude03\ud835\uddee\ud835\uddfb\ud835\ude01? 2.6B runs on a single GPU. On-premise. Infrastructure a startup can afford. We're not waiting for AGI. We're waiting for pattern matchers good enough, trained on the right data, small enough to deploy anywhere. That future is here. Link to the paper in the comments \ud83d\udc47",
+      "content_hash": "f72ce2964d1fdfafd96db7537e8bbeeabef2664d19d8d8855783f4fb0a9fe06c",
+      "language": null,
+      "metadata_json": {
+        "selector": "link_anchored",
+        "raw_url": "https://www.linkedin.com/feed/update/urn:li:activity:7442133113826205696?updateEntityUrn=urn%3Ali%3Afs_updateV2%3A%28urn%3Ali%3Aactivity%3A7442133113826205696%2CFEED_DETAIL%2CEMPTY%2CDEFAULT%2Cfalse%29"
+      }
+    }
+  ],
+  "classifications": [
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7442495601893826561",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.5714,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7441777851781095424",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.4286,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7442177776113221632",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.7143,
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source_key": "linkedin_saved:urn:li:activity:7442133113826205696",
+      "taxonomy_version": "v1.0.0",
+      "matches": [
+        {
+          "topic_slug": "small-language-models",
+          "topic_name": "Small Language Models",
+          "confidence": 0.4286,
+          "role": "primary"
+        }
+      ]
+    }
+  ],
+  "classificationRun": {
+    "run_id": "324d580b-3414-4e6b-b774-d39f5344dfd2",
+    "started_at": "2026-03-26T09:57:37.445725Z",
+    "finished_at": "2026-03-26T09:58:18.161595Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_fallback",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "zeroshot_min_similarity": 0.35,
+    "secondary_min_similarity": 0.5,
+    "processed_count": 4,
+    "matched_count": 4,
+    "diagnostics": {
+      "unmatched_count": 0,
+      "strategy": "deterministic keyword overlap fallback"
+    }
+  },
+  "topicCandidates": [
+    {
+      "candidate_id": "1515c5c1-2ecc-4a2c-aefc-55625c91f606",
+      "run_id": "116bd8da-e839-4721-ad35-ec9de51a6b16",
+      "taxonomy_version": "v1.0.0",
+      "label": "labarta",
+      "keywords": [
+        "\"llms",
+        "(dpo)",
+        "(sft)",
+        "accelerate",
+        "admet",
+        "affinity"
+      ],
+      "evidence_source_keys": [
+        "linkedin_saved:urn:li:activity:7442133113826205696",
+        "linkedin_saved:urn:li:activity:7442495601893826561"
+      ],
+      "confidence": 0.5,
+      "state": "pending"
+    }
+  ],
+  "discoveryRun": {
+    "run_id": "116bd8da-e839-4721-ad35-ec9de51a6b16",
+    "started_at": "2026-03-26T09:58:18.161747Z",
+    "finished_at": "2026-03-26T09:58:27.044651Z",
+    "status": "success",
+    "taxonomy_version": "v1.0.0",
+    "backend": "keyword_grouping",
+    "input_count": 4,
+    "candidate_count": 1,
+    "diagnostics": {
+      "scope_counts": {
+        "unmatched": 0,
+        "low_confidence": 2,
+        "recent": 4
+      },
+      "backlog_age_days": 0,
+      "fallback_reason": "Cannot send a request, as the client has been closed."
+    }
+  },
+  "discoveryPostTopics": [
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7442133113826205696",
+      "topicLabel": "labarta",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "1515c5c1-2ecc-4a2c-aefc-55625c91f606"
+    },
+    {
+      "sourceKey": "linkedin_saved:urn:li:activity:7442495601893826561",
+      "topicLabel": "labarta",
+      "role": "discovery_candidate",
+      "confidence": 0.5,
+      "candidateId": "1515c5c1-2ecc-4a2c-aefc-55625c91f606"
+    }
+  ],
+  "discoveryTelemetry": {
+    "candidate_count": 1,
+    "confidence_bands": {
+      "lt_0_4": 0,
+      "0_4_to_0_7": 1,
+      "gte_0_7": 0
+    },
+    "average_evidence_size": 2.0,
+    "backlog_age_days": 0,
+    "scope_counts": {
+      "unmatched": 0,
+      "low_confidence": 2,
+      "recent": 4
+    }
+  }
+}

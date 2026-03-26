@@ -29,8 +29,10 @@ class LinkedInSavedScraper:
         """
         from playwright.sync_api import sync_playwright
 
+        if limit <= 0:
+            return []
+
         self._config.linkedin_profile_dir.mkdir(parents=True, exist_ok=True)
-        known = seen_source_keys or set()
 
         with sync_playwright() as playwright:
             launch_kwargs: dict[str, Any] = {
@@ -72,16 +74,6 @@ class LinkedInSavedScraper:
                 page,
                 limit=limit,
                 seen_source_keys=seen_source_keys or set(),
-
-                stop_on_first_seen=stop_on_first_seen,
-            )
-            context.close()
-            return extracted
-
-            extracted = self._extract_posts(
-                page,
-                limit=limit,
-                seen_source_keys=known,
                 stop_on_first_seen=stop_on_first_seen,
             )
             context.close()
@@ -119,17 +111,18 @@ class LinkedInSavedScraper:
     ) -> list[dict[str, Any]]:
         """Best-effort extraction of saved post cards for phase-1 validation."""
         page.wait_for_timeout(1200)
-        self._expand_see_more(page)
+        expand_budget = min(max(limit, 4), 20)
+        self._expand_see_more(page, max_clicks=expand_budget)
 
         # Load a small viewport window so first saved cards are available for extraction.
-
-        for _ in range(3):
+        scroll_steps = min(3, max(1, (limit + 4) // 5))
+        for _ in range(scroll_steps):
             try:
                 page.mouse.wheel(0, 1800)
             except Exception:
                 break
             page.wait_for_timeout(700)
-            self._expand_see_more(page)
+            self._expand_see_more(page, max_clicks=expand_budget)
 
         raw_candidates = page.evaluate(
             r"""
@@ -174,7 +167,7 @@ class LinkedInSavedScraper:
               return rows;
             }
             """,
-            max(limit * 8, 20),
+            limit,
         )
 
         items: list[dict[str, Any]] = []
@@ -220,7 +213,7 @@ class LinkedInSavedScraper:
 
         return items
 
-    def _expand_see_more(self, page: Any) -> None:
+    def _expand_see_more(self, page: Any, *, max_clicks: int = 12) -> None:
         selectors = [
             "button:has-text('See more')",
             "button:has-text('see more')",
@@ -231,19 +224,25 @@ class LinkedInSavedScraper:
             "[aria-label*='See more']",
             "[aria-label*='see more']",
         ]
+        clicks = 0
 
         for selector in selectors:
+            if clicks >= max_clicks:
+                break
             locator = page.locator(selector)
             try:
-                count = min(locator.count(), 60)
+                count = min(locator.count(), max_clicks - clicks)
             except Exception:
                 continue
 
             for idx in range(count):
+                if clicks >= max_clicks:
+                    return
                 element = locator.nth(idx)
                 try:
-                    element.scroll_into_view_if_needed(timeout=800)
-                    element.click(timeout=800)
+                    # Avoid scrolling each element into view; this can walk the entire feed.
+                    element.click(timeout=500)
+                    clicks += 1
                 except Exception:
                     continue
 

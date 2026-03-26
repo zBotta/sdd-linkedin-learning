@@ -42,6 +42,6 @@
 ## Regression Execution Notes (T025)
 
 - Date: 2026-03-25
-- Command: `c:/Users/mbottari/Projects_local/sdd-linkedin-learning/.venv/Scripts/python.exe -m pytest tests/integration/test_local_sync_prototype.py tests/integration/test_discovery_pipeline.py tests/integration/test_stable_classification.py`
+- Command: `uv run python -m pytest tests/integration/test_local_sync_prototype.py tests/integration/test_discovery_pipeline.py tests/integration/test_stable_classification.py`
 - Result: PASS (`5 passed in 85.31s`)
 - Environment note: invoking plain `pytest` failed in one interpreter due import path mismatch; running from configured workspace venv resolved execution and imports.

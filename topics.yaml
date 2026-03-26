@@ -5,13 +5,32 @@ secondary_min_similarity: 0.5
 topics:
   - slug: small-language-models
     name: Small Language Models
-    keywords: ["small language model", "llm", "quantization", "inference"]
+    keywords: ["small language model", "slm", "quantization", "inference", "liquidAI", "local LLM", "llama.cpp", "gguf"] 
   - slug: rust
     name: Rust
     keywords: ["rust", "cargo", "borrow checker", "ownership"]
   - slug: mcp
     name: MCP
     keywords: ["model context protocol", "mcp", "tooling", "server"]
-  - slug: agents
-    name: Agents
+  - slug: ai-agents
+    name: AI-Agents
     keywords: ["agent", "autonomous", "workflow", "planner"]
+  - slug: openclaw
+    name: OpenClaw
+    keywords: ["claw", "clawdbot", "Molt", "Moltbot", "OpenClaw", "Peter Steinberg", "Steinberg", "ZeroClaw", "MiniClaw"]
+  - slug: python
+    name: Python
+    keywords: ["python", "pydantic", "fastapi", "streamlit", "asyncio"]
+  - slug: fastapi
+    name: FastAPI
+    keywords: ["fastapi", "web framework", "api", "python web framework"] 
+  - slug: aws
+    name: AWS
+    keywords: ["aws", "amazon web services", "cloud computing", "s3", "ec2", "lambda"]
+  - slug: azure
+    name: Azure
+    keywords: ["azure", "microsoft azure", "cloud computing", "blob storage", "virtual machines", "azure functions"]
+  - slug: gcp
+    name: GCP
+    keywords: ["gcp", "google cloud platform", "cloud computing", "cloud storage", "compute engine", "cloud functions"]
+  

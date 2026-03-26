@@ -28,6 +28,7 @@ class PushClient:
     def build_payload(
         self,
         posts: list[NormalizedPost],
+        topics: list[dict[str, Any]] | None = None,
         post_topics: list[dict[str, Any]] | None = None,
         topic_candidates: list[dict[str, Any]] | None = None,
         metadata: dict[str, Any] | None = None,
@@ -50,6 +51,19 @@ class PushClient:
             }
             for item in posts
         ]
+
+        payload_topics: list[dict[str, Any]] = []
+        for row in topics or []:
+            if all(key in row for key in ("slug", "name", "taxonomyVersion")):
+                payload_topics.append(
+                    {
+                        "slug": row["slug"],
+                        "name": row["name"],
+                        "description": row.get("description"),
+                        "taxonomyVersion": row["taxonomyVersion"],
+                        "sourceType": row.get("sourceType"),
+                    }
+                )
 
         payload_post_topics: list[dict[str, Any]] = []
         for row in post_topics or []:
@@ -92,15 +106,21 @@ class PushClient:
             "sentAt": datetime.now(timezone.utc).isoformat(),
             "source": "local_sync",
             "posts": payload_posts,
-            "topics": [],
+            "topics": payload_topics,
             "postTopics": payload_post_topics,
             "topicCandidates": payload_topic_candidates,
             "notes": [],
         }
 
     def push_payload(self, payload: dict[str, Any]) -> PushResult:
+        return self._post_json("/ingest/batch", payload, success_label="Payload sent")
+
+    def create_topic_run(self, payload: dict[str, Any]) -> PushResult:
+        return self._post_json("/topic-runs", payload, success_label="Topic run registered")
+
+    def _post_json(self, path: str, payload: dict[str, Any], *, success_label: str) -> PushResult:
         if not self._enabled:
-            return PushResult(applied=True, dry_run=True, message="Push disabled; payload prepared only")
+            return PushResult(applied=True, dry_run=True, message=f"{success_label} skipped (push disabled)")
 
         if not self._base_url or not self._token:
             return PushResult(
@@ -110,7 +130,7 @@ class PushClient:
                 message="Missing CLOUD_API_BASE_URL or CLOUD_INGEST_TOKEN",
             )
 
-        endpoint = f"{self._base_url}/ingest/batch"
+        endpoint = f"{self._base_url}{path}"
         body = json.dumps(payload).encode("utf-8")
         headers = {
             "Content-Type": "application/json",
@@ -129,7 +149,7 @@ class PushClient:
                         applied=200 <= response.status < 300,
                         dry_run=False,
                         status_code=response.status,
-                        message=f"Payload sent (attempt {attempt}/{max_attempts})",
+                        message=f"{success_label} (attempt {attempt}/{max_attempts})",
                     )
             except error.HTTPError as exc:
                 last_result = PushResult(

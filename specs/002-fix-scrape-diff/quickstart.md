@@ -17,7 +17,7 @@
 Run a sync in default mode (incremental expected):
 
 ```powershell
-python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).run_once(limit=300); print(json.dumps(result, indent=2))"
+uv run python -c "from local_sync.config import LocalSyncConfig; from local_sync.sync_agent import SyncAgent; import json; result=SyncAgent(LocalSyncConfig.from_env('cloud/.env')).run_once(limit=300); print(json.dumps(result, indent=2))"
 ```
 
 Validate:
@@ -72,7 +72,7 @@ Expected behavior:
 Run targeted integration tests:
 
 ```powershell
-python -m pytest tests/integration/test_local_sync_prototype.py tests/integration/test_discovery_pipeline.py tests/integration/test_stable_classification.py
+uv run python -m pytest tests/integration/test_local_sync_prototype.py tests/integration/test_discovery_pipeline.py tests/integration/test_stable_classification.py
 ```
 
 Expected:
@@ -83,7 +83,7 @@ Expected:
 ## Validation log
 
 - Automated validation completed on 2026-03-25:
-	- Command: `c:/Users/mbottari/Projects_local/sdd-linkedin-learning/.venv/Scripts/python.exe -m pytest tests/integration/test_local_sync_prototype.py tests/integration/test_discovery_pipeline.py tests/integration/test_stable_classification.py`
+- Command: `uv run python -m pytest tests/integration/test_local_sync_prototype.py tests/integration/test_discovery_pipeline.py tests/integration/test_stable_classification.py`
 	- Result: `5 passed in 85.31s`
 - Scenario validation completed on 2026-03-25 using deterministic injected local-sync harness (`.tmp_quickstart_validate.py`):
 	- Baseline incremental behavior: PASS (`full_rescrape=false`, second run `new_count` did not increase)
